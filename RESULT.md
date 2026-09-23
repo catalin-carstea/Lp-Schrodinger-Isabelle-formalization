@@ -2,7 +2,7 @@
 
 Project-level label: **VERIFIED_RELATIVE_TO_LITERATURE**
 
-- `slp_alessandrini_uniqueness_claim_v2` in `Inverse_Schrodinger_Lp_Alessandrini_Uniqueness_V2` — frozen conditional v002: universal integrable complex-bilinear Alessandrini orthogonality implies almost-everywhere equality for every real p>1
+- `slp_alessandrini_uniqueness_claim_v2` in `Inverse_Schrodinger_Lp_Alessandrini_Uniqueness_V2` — frozen v002 uniqueness theorem: universal integrable complex-bilinear Alessandrini orthogonality implies almost-everywhere equality for every real p>1
 
 The exact trust boundary, including every active literature proposition, is
 enumerated in `translation/TRANSLATION_A.tex` and `translation/TRANSLATION_B.tex` and

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package_version": 1,
-  "title": "Conditional uniqueness for the inverse Schrodinger problem with L^p potentials, p>1",
+  "title": "Uniqueness from Alessandrini orthogonality for L^p Schrodinger potentials, p>1",
   "artifact_name": "inverse-schrodinger-lp-uniqueness-proof-v1",
   "result_label": "VERIFIED_RELATIVE_TO_LITERATURE",
   "required_environment": {
@@ -22,7 +22,7 @@
       {
         "formal_identifier": "slp_alessandrini_uniqueness_claim_v2",
         "theory": "Inverse_Schrodinger_Lp_Alessandrini_Uniqueness_V2",
-        "description": "frozen conditional v002: universal integrable complex-bilinear Alessandrini orthogonality implies almost-everywhere equality for every real p>1"
+        "description": "frozen v002 uniqueness theorem: universal integrable complex-bilinear Alessandrini orthogonality implies almost-everywhere equality for every real p>1"
       }
     ],
     "local_session_count": 30,
@@ -71,7 +71,7 @@
   "manuscript_binding": {
     "mode": "external_semantic_review",
     "hard_gate": false,
-    "last_compared_version": "official short v05; user-selected conditional statement v002",
+    "last_compared_version": "official short v05; user-selected Alessandrini-orthogonality statement v002",
     "last_compared_sha256": "bea3c22283a7bfc8b2adb929bfc48e576c7bfb0a3f0ff6a823ce2bb191048430",
     "informational_only": true,
     "review_surface": "translation/TRANSLATION_A.tex, translation/TRANSLATION_A.pdf, translation/TRANSLATION_B.tex, and translation/TRANSLATION_B.pdf",
@@ -98,13 +98,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "2440fb22e3fb81a58ed281435aa01d7d7b0be9144a7bd0d67d4d6f1ebc6bbe28",
+      "sha256": "602c9da586b4248c3dad4293becc02fb83f108da34ce0ff6916517997b7960a1",
       "role": "reviewer_readme",
       "source": "papers/inverse-schrodinger-lp-uniqueness/delivery/README.md"
     },
     {
       "path": "RESULT.md",
-      "sha256": "5db624deb9898881310df770d09b7d494a12879a58bc7d52f3c3c82332a7354b",
+      "sha256": "2e34fa15cb373c76687b5e0139cd335b33987325281b9ada6132ca0f903f10dc",
       "role": "result_scope",
       "source": "generated from proof-package recipe"
     },
@@ -6266,7 +6266,7 @@
     },
     {
       "path": "provenance/proof-package.json",
-      "sha256": "6e69a9bd312fcbc334b641146d4e210200bc9cc33405a4712f3434238b372bbb",
+      "sha256": "4d5faa5f8d5dde0c68e4d01e52155b0dbc5f337c43455647743044fdef1e056d",
       "role": "release_recipe",
       "source": "papers/inverse-schrodinger-lp-uniqueness/proof-package.json"
     },

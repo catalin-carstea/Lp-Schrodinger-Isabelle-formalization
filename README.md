@@ -1,9 +1,8 @@
-# Conditional uniqueness for the inverse Schrödinger problem with L^p potentials, p>1: Isabelle/HOL proof package
+# Uniqueness from Alessandrini orthogonality for L^p Schrödinger potentials, p>1: Isabelle/HOL proof package
 
-This source package checks the **conditional Alessandrini-orthogonality
-uniqueness result v002**, relative to ten explicitly declared literature
-results. The project label is **VERIFIED_RELATIVE_TO_LITERATURE**. Its exact
-theorem and exclusions appear in `RESULT.md`.
+This source package contains an Isabelle/HOL proof of **uniqueness from
+Alessandrini orthogonality for L^p Schrödinger potentials, p>1** (the frozen
+v002 statement). Its exact theorem and formalization scope appear in `RESULT.md`.
 
 For two possibly complex-valued L^p potentials, p>1, on a bounded smooth planar
 domain, the result says that universal integrable complex-bilinear
@@ -11,11 +10,16 @@ Alessandrini orthogonality against the corresponding weak-solution pairs
 implies equality almost everywhere. This package does **not** establish the
 manuscript's Dirichlet-to-Neumann theorem `main-thm`.
 
-Isabelle checks the formal derivation from the explicit theorem and locale
-premises. The audited documents in `translation/` expose the mathematical
-interpretation and source statements. Exact-byte human semantic ratification
-of the statement and literature interfaces remains pending under the recorded
-`testing_waiver` mode.
+The proof uses **ten cited results**, represented by explicit, reviewed
+literature interfaces. Isabelle checks the derivation from those stated
+premises; the proofs of the cited results are not formalized in this package.
+The project label **VERIFIED_RELATIVE_TO_LITERATURE** records this dependency
+boundary separately from the theorem's mathematical hypotheses.
+
+The audited documents in `translation/` expose the mathematical interpretation
+and source statements. Exact-byte human semantic ratification of the statement
+and literature interfaces remains pending under the recorded `testing_waiver`
+mode.
 
 ## Requirements
 
@@ -106,7 +110,7 @@ Ubuntu. It does not run an Isabelle proof build.
 
 The preserved translation README describes the package as review-ready. The
 later manifest and independent PASS report in `provenance/` record that its
-audit was completed; its historical bytes are retained unchanged.
+audit was completed; its historical bytes and terminology are retained unchanged.
 
 Likewise, `provenance/TRUSTED_BASE.md` is an unchanged historical snapshot.
 Some consumer descriptions and its prose count of nine are stale. The current

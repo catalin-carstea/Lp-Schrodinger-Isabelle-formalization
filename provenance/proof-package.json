@@ -3,7 +3,7 @@
   "status": "ready",
   "package_version": 1,
   "artifact_name": "inverse-schrodinger-lp-uniqueness-proof-v1",
-  "title": "Conditional uniqueness for the inverse Schrodinger problem with L^p potentials, p>1",
+  "title": "Uniqueness from Alessandrini orthogonality for L^p Schrodinger potentials, p>1",
   "result_label": "VERIFIED_RELATIVE_TO_LITERATURE",
   "isabelle_release": "Isabelle2025-2",
   "afp_release": "afp-2026-07-21",
@@ -12,7 +12,7 @@
     {
       "formal_identifier": "slp_alessandrini_uniqueness_claim_v2",
       "theory": "Inverse_Schrodinger_Lp_Alessandrini_Uniqueness_V2",
-      "description": "frozen conditional v002: universal integrable complex-bilinear Alessandrini orthogonality implies almost-everywhere equality for every real p>1"
+      "description": "frozen v002 uniqueness theorem: universal integrable complex-bilinear Alessandrini orthogonality implies almost-everywhere equality for every real p>1"
     }
   ],
   "excluded_claims": [
@@ -29,7 +29,7 @@
   "manuscript_binding": {
     "mode": "external_semantic_review",
     "hard_gate": false,
-    "last_compared_version": "official short v05; user-selected conditional statement v002",
+    "last_compared_version": "official short v05; user-selected Alessandrini-orthogonality statement v002",
     "last_compared_sha256": "bea3c22283a7bfc8b2adb929bfc48e576c7bfb0a3f0ff6a823ce2bb191048430",
     "informational_only": true,
     "review_surface": "translation/TRANSLATION_A.tex, translation/TRANSLATION_A.pdf, translation/TRANSLATION_B.tex, and translation/TRANSLATION_B.pdf",
