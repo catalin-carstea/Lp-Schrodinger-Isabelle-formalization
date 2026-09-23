@@ -1,0 +1,5 @@
+session Paper_ISLP_AIM_Planar_Beurling_Lp =
+  Paper_ISLP_AIM_Planar_Hardy_Littlewood_Sobolev +
+  options [document = false]
+  theories
+    AIM_Planar_Beurling_Lp_Interface

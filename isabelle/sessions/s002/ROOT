@@ -1,0 +1,7 @@
+session Paper_ISLP_AIM_Planar_Cauchy_Beurling_Derivatives =
+  Paper_Inverse_Schrodinger_Lp_Uniqueness +
+  options [document = false]
+  sessions
+    Paper_ISLP_AIM_Planar_Beurling_Lp
+  theories
+    AIM_Planar_Cauchy_Beurling_Derivatives_Interface

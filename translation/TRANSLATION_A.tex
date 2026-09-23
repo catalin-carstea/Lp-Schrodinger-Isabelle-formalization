@@ -1,0 +1,1216 @@
+\documentclass[10pt,oneside]{article}
+\usepackage[a4paper,margin=20mm,headheight=15pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{microtype}
+\definecolor{codebg}{HTML}{F6F7F9}
+\definecolor{codeframe}{HTML}{CBD2D9}
+\definecolor{accent}{HTML}{284B63}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent}
+\lstdefinelanguage{Isabelle}{morekeywords={theory,imports,begin,end,type_synonym,definition,where,theorem,shows,locale,for,fixes,assumes},sensitive=true,morecomment=[s]{(*}{*)},morestring=[b]"}
+\lstset{language=Isabelle,basicstyle=\ttfamily\scriptsize,backgroundcolor=\color{codebg},frame=single,rulecolor=\color{codeframe},breaklines=true,breakatwhitespace=false,columns=fullflexible,keepspaces=true,showstringspaces=false,xleftmargin=0.6em,xrightmargin=0.3em}
+\setlist{nosep,leftmargin=2em}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Translation-review dossier}
+\fancyhead[R]{Translation A}
+\fancyfoot[C]{\thepage}
+\newenvironment{sourcequote}{\begin{quote}\itshape}{\end{quote}}
+\newcommand{\reviewlabel}[1]{\par\smallskip\noindent\textsf{\bfseries #1}\par\smallskip}
+\emergencystretch=3em
+\sloppy
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{0.15\textheight}
+{\LARGE\bfseries Translation-review dossier\par}
+\vspace{1.2em}
+{\Large Conditional Alessandrini uniqueness for planar \(L^p\) potentials\par}
+\vspace{1em}
+{\large Independent translation A\par}
+\vfill
+{Package version 2\par}
+{Human-ratification state: pending\par}
+\end{titlepage}
+\tableofcontents
+\clearpage
+
+\section{Scope and trust status}
+This dossier covers the frozen conditional v002 target, not the manuscript's
+Dirichlet-to-Neumann theorem. The proof is relative to the ten literature
+interfaces reproduced below. The active approval mode is
+\texttt{testing\_waiver}; exact-byte human ratification of the statement and
+all literature entries remains pending.
+
+\section{Definitions}
+The following byte-pinned project definitions are the complete meaning-bearing
+closure of the advertised v002 proposition, in dependency order.
+% CF-DEFINITIONS-BEGIN
+% CF-DEFINITION-ENTRY-BEGIN: DEF-01-TYPES
+\subsubsection{\texttt{\detokenize{DEF-01-TYPES}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_point; slp_scalar_field; slp_gradient_field; slp_h1_data}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-01-TYPES
+\begin{lstlisting}
+type_synonym slp_point = "real ^ 2"
+type_synonym slp_scalar_field = "slp_point \<Rightarrow> complex"
+type_synonym slp_gradient_field = "slp_point \<Rightarrow> complex ^ 2"
+type_synonym slp_h1_data = "slp_scalar_field \<times> slp_gradient_field"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-01-TYPES
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-01-TYPES
+A point is a vector in the real Euclidean plane. A scalar field is a complex-valued function on that plane, a gradient field has two complex components, and project $H^1$ data are a scalar field paired with such a gradient field.
+% CF-BACK-TRANSLATION-END: DEF-01-TYPES
+% CF-DEFINITION-ENTRY-END: DEF-01-TYPES
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-02-SMOOTH-BOUNDARY
+\subsubsection{\texttt{\detokenize{DEF-02-SMOOTH-BOUNDARY}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_smooth_boundary_at}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-02-SMOOTH-BOUNDARY
+\begin{lstlisting}
+definition slp_smooth_boundary_at ::
+  "slp_point set \<Rightarrow> slp_point \<Rightarrow> bool"
+where
+  "slp_smooth_boundary_at D x \<longleftrightarrow>
+    (\<exists>(U :: slp_point set) (W :: slp_point set)
+       (f :: slp_point \<Rightarrow> slp_point)
+       (g :: slp_point \<Rightarrow> slp_point) (i :: 2).
+      open U \<and> open W \<and> x \<in> U \<and>
+      homeomorphism U W f g \<and>
+      smooth_on U f \<and> smooth_on W g \<and>
+      f ` (D \<inter> U) = W \<inter> {y. 0 < y $ i})"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-02-SMOOTH-BOUNDARY
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-02-SMOOTH-BOUNDARY
+The boundary of $D$ is smooth at $x$ when a neighborhood of $x$ is carried by mutually inverse smooth homeomorphisms to an open set in which $D$ is one coordinate half-space.
+% CF-BACK-TRANSLATION-END: DEF-02-SMOOTH-BOUNDARY
+% CF-DEFINITION-ENTRY-END: DEF-02-SMOOTH-BOUNDARY
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-03-DOMAIN
+\subsubsection{\texttt{\detokenize{DEF-03-DOMAIN}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_bounded_smooth_domain}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-03-DOMAIN
+\begin{lstlisting}
+definition slp_bounded_smooth_domain :: "slp_point set \<Rightarrow> bool"
+where
+  "slp_bounded_smooth_domain D \<longleftrightarrow>
+    D \<noteq> {} \<and> open D \<and> connected D \<and> bounded D \<and>
+    (\<forall>x\<in>frontier D. slp_smooth_boundary_at D x)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-03-DOMAIN
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-03-DOMAIN
+$D$ is a bounded smooth domain precisely when it is nonempty, open, connected and bounded, and the preceding smooth-boundary condition holds at every frontier point.
+% CF-BACK-TRANSLATION-END: DEF-03-DOMAIN
+% CF-DEFINITION-ENTRY-END: DEF-03-DOMAIN
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-04-PARTIAL
+\subsubsection{\texttt{\detokenize{DEF-04-PARTIAL}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_complex_partial_derivative}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-04-PARTIAL
+\begin{lstlisting}
+definition slp_complex_partial_derivative ::
+  "slp_scalar_field \<Rightarrow> 2 \<Rightarrow> slp_point \<Rightarrow> complex"
+where
+  "slp_complex_partial_derivative phi i x =
+    frechet_derivative phi (at x) (axis i 1)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-04-PARTIAL
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-04-PARTIAL
+The $i$th complex partial derivative of $\phi$ at $x$ is its Fréchet derivative at $x$ applied to the $i$th unit coordinate vector.
+% CF-BACK-TRANSLATION-END: DEF-04-PARTIAL
+% CF-DEFINITION-ENTRY-END: DEF-04-PARTIAL
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-05-GRADIENT
+\subsubsection{\texttt{\detokenize{DEF-05-GRADIENT}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_classical_gradient}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-05-GRADIENT
+\begin{lstlisting}
+definition slp_classical_gradient ::
+  "slp_scalar_field \<Rightarrow> slp_gradient_field"
+where
+  "slp_classical_gradient phi x =
+    (\<chi> i. slp_complex_partial_derivative phi i x)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-05-GRADIENT
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-05-GRADIENT
+The classical gradient is the two-component vector whose $i$th entry is the corresponding complex partial derivative.
+% CF-BACK-TRANSLATION-END: DEF-05-GRADIENT
+% CF-DEFINITION-ENTRY-END: DEF-05-GRADIENT
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-06-TEST
+\subsubsection{\texttt{\detokenize{DEF-06-TEST}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_test_function_on}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-06-TEST
+\begin{lstlisting}
+definition slp_test_function_on ::
+  "slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow> bool"
+where
+  "slp_test_function_on U phi \<longleftrightarrow>
+    smooth_on UNIV phi \<and>
+    compact (closure {x. phi x \<noteq> 0}) \<and>
+    closure {x. phi x \<noteq> 0} \<subseteq> U"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-06-TEST
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-06-TEST
+A test function on $U$ is globally smooth and has compact closed nonzero support contained in $U$.
+% CF-BACK-TRANSLATION-END: DEF-06-TEST
+% CF-DEFINITION-ENTRY-END: DEF-06-TEST
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-07-WEAK-GRADIENT
+\subsubsection{\texttt{\detokenize{DEF-07-WEAK-GRADIENT}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_weak_gradient_on}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-07-WEAK-GRADIENT
+\begin{lstlisting}
+definition slp_weak_gradient_on ::
+  "slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow>
+    slp_gradient_field \<Rightarrow> bool"
+where
+  "slp_weak_gradient_on U u Du \<longleftrightarrow>
+    (\<forall>phi. slp_test_function_on U phi \<longrightarrow>
+      (\<forall>i.
+        set_integrable lborel U
+          (\<lambda>x. u x * slp_complex_partial_derivative phi i x) \<and>
+        set_integrable lborel U (\<lambda>x. Du x $ i * phi x) \<and>
+        set_lebesgue_integral lborel U
+          (\<lambda>x. u x * slp_complex_partial_derivative phi i x) =
+        - set_lebesgue_integral lborel U (\<lambda>x. Du x $ i * phi x)))"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-07-WEAK-GRADIENT
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-07-WEAK-GRADIENT
+$Du$ is a weak gradient of $u$ on $U$ when, for every test function and each coordinate, both products are integrable and $\int_U u\,\partial_i\phi=-\int_U(Du)_i\phi$.
+% CF-BACK-TRANSLATION-END: DEF-07-WEAK-GRADIENT
+% CF-DEFINITION-ENTRY-END: DEF-07-WEAK-GRADIENT
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-08-H1-PAIR
+\subsubsection{\texttt{\detokenize{DEF-08-H1-PAIR}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_h1_pair_on}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-08-H1-PAIR
+\begin{lstlisting}
+definition slp_h1_pair_on ::
+  "slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow>
+    slp_gradient_field \<Rightarrow> bool"
+where
+  "slp_h1_pair_on U u Du \<longleftrightarrow>
+    u \<in> borel_measurable (restrict_space lborel U) \<and>
+    Du \<in> borel_measurable (restrict_space lborel U) \<and>
+    slp_weak_gradient_on U u Du \<and>
+    set_integrable lborel U (\<lambda>x. norm (u x) ^ 2) \<and>
+    set_integrable lborel U (\<lambda>x. norm (Du x) ^ 2)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-08-H1-PAIR
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-08-H1-PAIR
+A scalar representative and gradient representative form project $H^1(U)$ data when both are measurable on the restricted space, the second is the weak gradient of the first, and the squared norms of both are integrable on $U$.
+% CF-BACK-TRANSLATION-END: DEF-08-H1-PAIR
+% CF-DEFINITION-ENTRY-END: DEF-08-H1-PAIR
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-09-H1-DATA
+\subsubsection{\texttt{\detokenize{DEF-09-H1-DATA}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_h1_data_on}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-09-H1-DATA
+\begin{lstlisting}
+definition slp_h1_data_on :: "slp_point set \<Rightarrow> slp_h1_data \<Rightarrow> bool"
+where
+  "slp_h1_data_on U F \<longleftrightarrow>
+    slp_h1_pair_on U (fst F) (snd F)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-09-H1-DATA
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-09-H1-DATA
+An $H^1$ datum belongs to $U$ exactly when its first and second projections satisfy the preceding $H^1$ pair predicate.
+% CF-BACK-TRANSLATION-END: DEF-09-H1-DATA
+% CF-DEFINITION-ENTRY-END: DEF-09-H1-DATA
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-10-H1-DISTANCE
+\subsubsection{\texttt{\detokenize{DEF-10-H1-DISTANCE}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_h1_squared_distance}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-10-H1-DISTANCE
+\begin{lstlisting}
+definition slp_h1_squared_distance ::
+  "slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow>
+    slp_gradient_field \<Rightarrow> slp_scalar_field \<Rightarrow>
+    slp_gradient_field \<Rightarrow> real"
+where
+  "slp_h1_squared_distance U u Du v Dv =
+    set_lebesgue_integral lborel U
+      (\<lambda>x. norm (u x - v x) ^ 2 + norm (Du x - Dv x) ^ 2)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-10-H1-DISTANCE
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-10-H1-DISTANCE
+The squared $H^1$ distance integrates over $U$ the squared scalar difference plus the squared gradient-vector difference.
+% CF-BACK-TRANSLATION-END: DEF-10-H1-DISTANCE
+% CF-DEFINITION-ENTRY-END: DEF-10-H1-DISTANCE
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-11-H10-PAIR
+\subsubsection{\texttt{\detokenize{DEF-11-H10-PAIR}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_h1_zero_pair_on}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-11-H10-PAIR
+\begin{lstlisting}
+definition slp_h1_zero_pair_on ::
+  "slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow>
+    slp_gradient_field \<Rightarrow> bool"
+where
+  "slp_h1_zero_pair_on U u Du \<longleftrightarrow>
+    slp_h1_pair_on U u Du \<and>
+    (\<exists>seq :: nat \<Rightarrow> slp_scalar_field.
+      (\<forall>m. slp_test_function_on U (seq m) \<and>
+        slp_h1_pair_on U (seq m) (slp_classical_gradient (seq m))) \<and>
+      (\<forall>epsilon>0. \<exists>N. \<forall>m\<ge>N.
+        slp_h1_squared_distance U (seq m)
+          (slp_classical_gradient (seq m)) u Du < epsilon))"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-11-H10-PAIR
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-11-H10-PAIR
+A pair is in project $H^1_0(U)$ when it is an $H^1$ pair and a sequence of project test functions, with their classical gradients, converges to it in the squared $H^1$ distance.
+% CF-BACK-TRANSLATION-END: DEF-11-H10-PAIR
+% CF-DEFINITION-ENTRY-END: DEF-11-H10-PAIR
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-12-H10-DATA
+\subsubsection{\texttt{\detokenize{DEF-12-H10-DATA}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_h1_zero_data_on}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-12-H10-DATA
+\begin{lstlisting}
+definition slp_h1_zero_data_on ::
+  "slp_point set \<Rightarrow> slp_h1_data \<Rightarrow> bool"
+where
+  "slp_h1_zero_data_on U F \<longleftrightarrow>
+    slp_h1_zero_pair_on U (fst F) (snd F)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-12-H10-DATA
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-12-H10-DATA
+Pair-valued data lie in project $H^1_0(U)$ exactly when their two projections satisfy the preceding zero-pair predicate.
+% CF-BACK-TRANSLATION-END: DEF-12-H10-DATA
+% CF-DEFINITION-ENTRY-END: DEF-12-H10-DATA
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-13-LP
+\subsubsection{\texttt{\detokenize{DEF-13-LP}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_complex_lp_on}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-13-LP
+\begin{lstlisting}
+definition slp_complex_lp_on ::
+  "real \<Rightarrow> slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow> bool"
+where
+  "slp_complex_lp_on p U V \<longleftrightarrow>
+    V \<in> borel_measurable (restrict_space lborel U) \<and>
+    set_integrable lborel U (\<lambda>x. norm (V x) powr p)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-13-LP
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-13-LP
+$V$ belongs to the project complex $L^p(U)$ model when it is Borel measurable on the restricted space and $\int_U |V|^p$ (encoded with real power) is finite.
+% CF-BACK-TRANSLATION-END: DEF-13-LP
+% CF-DEFINITION-ENTRY-END: DEF-13-LP
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-14-WEAK-FORM-INTEGRABLE
+\subsubsection{\texttt{\detokenize{DEF-14-WEAK-FORM-INTEGRABLE}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_weak_form_integrable}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-14-WEAK-FORM-INTEGRABLE
+\begin{lstlisting}
+definition slp_weak_form_integrable ::
+  "slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow>
+    slp_h1_data \<Rightarrow> slp_h1_data \<Rightarrow> bool"
+where
+  "slp_weak_form_integrable U V F G \<longleftrightarrow>
+    set_integrable lborel U
+      (\<lambda>x. \<Sum>i\<in>UNIV. snd F x $ i * snd G x $ i) \<and>
+    set_integrable lborel U
+      (\<lambda>x. V x * fst F x * fst G x)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-14-WEAK-FORM-INTEGRABLE
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-14-WEAK-FORM-INTEGRABLE
+The weak form is defined for $F,G$ when both the bilinear gradient product and the bilinear potential product are integrable on $U$.
+% CF-BACK-TRANSLATION-END: DEF-14-WEAK-FORM-INTEGRABLE
+% CF-DEFINITION-ENTRY-END: DEF-14-WEAK-FORM-INTEGRABLE
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-15-WEAK-FORM
+\subsubsection{\texttt{\detokenize{DEF-15-WEAK-FORM}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_weak_form}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-15-WEAK-FORM
+\begin{lstlisting}
+definition slp_weak_form ::
+  "slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow>
+    slp_h1_data \<Rightarrow> slp_h1_data \<Rightarrow> complex"
+where
+  "slp_weak_form U V F G =
+    set_lebesgue_integral lborel U
+      (\<lambda>x. \<Sum>i\<in>UNIV. snd F x $ i * snd G x $ i) +
+    set_lebesgue_integral lborel U
+      (\<lambda>x. V x * fst F x * fst G x)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-15-WEAK-FORM
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-15-WEAK-FORM
+The weak Schr\"odinger form is the integral of the complex-bilinear gradient pairing plus the integral of $V$ times the two scalar representatives.
+% CF-BACK-TRANSLATION-END: DEF-15-WEAK-FORM
+% CF-DEFINITION-ENTRY-END: DEF-15-WEAK-FORM
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-16-WEAK-SOLUTION
+\subsubsection{\texttt{\detokenize{DEF-16-WEAK-SOLUTION}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_weak_solution}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-16-WEAK-SOLUTION
+\begin{lstlisting}
+definition slp_weak_solution ::
+  "slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow>
+    slp_h1_data \<Rightarrow> bool"
+where
+  "slp_weak_solution U V F \<longleftrightarrow>
+    slp_h1_data_on U F \<and>
+    (\<forall>G. slp_h1_zero_data_on U G \<longrightarrow>
+      slp_weak_form_integrable U V F G \<and>
+      slp_weak_form U V F G = 0)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-16-WEAK-SOLUTION
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-16-WEAK-SOLUTION
+$F$ is a weak solution for $V$ on $U$ when $F$ is project $H^1$ data and, against every project $H^1_0$ datum $G$, the weak form is integrable and equals zero.
+% CF-BACK-TRANSLATION-END: DEF-16-WEAK-SOLUTION
+% CF-DEFINITION-ENTRY-END: DEF-16-WEAK-SOLUTION
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-17-AE-EQUALITY
+\subsubsection{\texttt{\detokenize{DEF-17-AE-EQUALITY}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_potential_ae_equal}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-17-AE-EQUALITY
+\begin{lstlisting}
+definition slp_potential_ae_equal ::
+  "slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow>
+    slp_scalar_field \<Rightarrow> bool"
+where
+  "slp_potential_ae_equal U V V_tilde \<longleftrightarrow>
+    (AE x in restrict_space lborel U. V x = V_tilde x)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-17-AE-EQUALITY
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-17-AE-EQUALITY
+Two potentials are equal in the project sense when their representatives agree almost everywhere for planar Lebesgue measure restricted to $U$.
+% CF-BACK-TRANSLATION-END: DEF-17-AE-EQUALITY
+% CF-DEFINITION-ENTRY-END: DEF-17-AE-EQUALITY
+
+% CF-DEFINITION-ENTRY-BEGIN: DEF-18-ALESSANDRINI
+\subsubsection{\texttt{\detokenize{DEF-18-ALESSANDRINI}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_alessandrini_orthogonality}}
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: DEF-18-ALESSANDRINI
+\begin{lstlisting}
+definition slp_alessandrini_orthogonality ::
+  "slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow>
+    slp_scalar_field \<Rightarrow> bool"
+where
+  "slp_alessandrini_orthogonality Omega V V_tilde \<longleftrightarrow>
+    (\<forall>F G.
+      slp_weak_solution Omega V F \<and>
+      slp_weak_solution Omega V_tilde G
+      \<longrightarrow>
+      set_integrable lborel Omega
+        (\<lambda>x. (V x - V_tilde x) * fst F x * fst G x) \<and>
+      set_lebesgue_integral lborel Omega
+        (\<lambda>x. (V x - V_tilde x) * fst F x * fst G x) = 0)"
+\end{lstlisting}
+% CF-ISABELLE-END: DEF-18-ALESSANDRINI
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: DEF-18-ALESSANDRINI
+For every $V$-weak solution $F$ and every $\widetilde V$-weak solution $G$, the complex-bilinear product $(V-\widetilde V)(\operatorname{fst}F)(\operatorname{fst}G)$ is integrable on $\Omega$ and its integral is zero.
+% CF-BACK-TRANSLATION-END: DEF-18-ALESSANDRINI
+% CF-DEFINITION-ENTRY-END: DEF-18-ALESSANDRINI
+% CF-DEFINITIONS-END
+
+\clearpage
+\section{Statements}
+\subsection{Advertised conditional conclusion}
+% CF-MANUSCRIPT-CLAIMS-BEGIN
+% CF-MANUSCRIPT-ENTRY-BEGIN: MAIN-001
+\subsubsection{\texttt{\detokenize{MAIN-001}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{slp_alessandrini_uniqueness_claim}}
+
+\reviewlabel{English original and exact authority locator}
+% CF-MANUSCRIPT-ORIGINAL-BEGIN: MAIN-001
+\begin{sourcequote}
+The frozen user-selected statement specification v002, based on the official
+manuscript's weak Alessandrini identity at lines 1115--1152 and equation
+\texttt{weak-alessandrini-zero}, states: let $\Omega$ be a bounded smooth
+domain in the real plane, let $1<p<\infty$, and let $V,\widetilde V$ be
+possibly complex-valued members of $L^p(\Omega)$. Suppose that for every
+$H^1(\Omega)$ weak solution $u$ of $(-\Delta+V)u=0$ and every
+$H^1(\Omega)$ weak solution $\widetilde u$ of
+$(-\Delta+\widetilde V)\widetilde u=0$, the complex-bilinear product
+$(V-\widetilde V)u\widetilde u$ is integrable on $\Omega$ and has integral
+zero. Then $V=\widetilde V$ almost everywhere in $\Omega$. No complex
+conjugate occurs. This is the user-authorized conditional replacement target,
+not manuscript Theorem \texttt{main-thm}; non-eigenvalue and DN-map premises
+are deliberately outside v002.
+\end{sourcequote}
+% CF-MANUSCRIPT-ORIGINAL-END: MAIN-001
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: MAIN-001
+\begin{lstlisting}
+definition slp_alessandrini_uniqueness_claim ::
+  "real \<Rightarrow> slp_point set \<Rightarrow> slp_scalar_field \<Rightarrow>
+    slp_scalar_field \<Rightarrow> bool"
+where
+  "slp_alessandrini_uniqueness_claim p Omega V V_tilde \<longleftrightarrow>
+    (1 < p \<and>
+     slp_bounded_smooth_domain Omega \<and>
+     slp_complex_lp_on p Omega V \<and>
+     slp_complex_lp_on p Omega V_tilde \<and>
+     slp_alessandrini_orthogonality Omega V V_tilde)
+    \<longrightarrow> slp_potential_ae_equal Omega V V_tilde"
+\end{lstlisting}
+% CF-ISABELLE-END: MAIN-001
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: MAIN-001
+For arbitrary real $p$, planar set $\Omega$, and complex fields
+$V,\widetilde V$, assume $p>1$, that $\Omega$ is a nonempty bounded connected
+open set with smooth boundary, that both potentials belong to the project's
+restricted complex $L^p$ model, and that every corresponding pair of project
+$H^1$ weak solutions has an explicitly integrable unconjugated Alessandrini
+product with zero integral. The claim then requires $V$ and $\widetilde V$ to
+agree for restricted planar Lebesgue-almost every point of $\Omega$.
+% CF-BACK-TRANSLATION-END: MAIN-001
+% CF-MANUSCRIPT-ENTRY-END: MAIN-001
+% CF-MANUSCRIPT-CLAIMS-END
+
+\subsection{Cited results}
+Each entry first states the complete source material used, then the exact
+derived interface result, its Isabelle declaration, and an independently
+produced English back-translation.
+% CF-LITERATURE-ENTRIES-BEGIN
+% CF-LITERATURE-ENTRY-BEGIN: AIM-PLANAR-BEURLING-LP-BOUND
+\subsubsection{\texttt{\detokenize{AIM-PLANAR-BEURLING-LP-BOUND}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{aim_planar_beurling_lp_claim}}.\par
+\noindent\textit{Relationship to source:} derived.
+
+\reviewlabel{Source attribution and locator}
+% CF-SOURCE-ATTRIBUTION-BEGIN: AIM-PLANAR-BEURLING-LP-BOUND/SOURCE-1
+Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, formula (4.17), Theorem 4.0.10, and Theorem 4.5.3 with (4.84), printed pp. 94, 97-98, and 129, ISBN 978-0-691-13777-3
+% CF-SOURCE-ATTRIBUTION-END: AIM-PLANAR-BEURLING-LP-BOUND/SOURCE-1
+
+\reviewlabel{Quoted source theorem statement}
+% CF-SOURCE-STATEMENT-BEGIN: AIM-PLANAR-BEURLING-LP-BOUND/SOURCE-1
+\begin{sourcequote}
+AIM formula (4.17) defines the Beurling transform by the principal value $-(1/\pi)\lim_{\varepsilon\downarrow0}\int_{|z-\tau|>\varepsilon} f(\tau)/(z-\tau)^2\,d\tau$. Theorem 4.0.10 states that for $f\in L^p(\mathbb C)$, $1<p<\infty$, this limit exists almost everywhere. Theorem 4.5.3 states that $S$ extends continuously on $L^p(\mathbb C)$ for every $1<p<\infty$ and satisfies $\|Sf\|_p\leq S_p\|f\|_p$.
+\end{sourcequote}
+% CF-SOURCE-STATEMENT-END: AIM-PLANAR-BEURLING-LP-BOUND/SOURCE-1
+
+\reviewlabel{Formalized derived mathematical result}
+% CF-DERIVED-RESULT-BEGIN: AIM-PLANAR-BEURLING-LP-BOUND
+Consequently, for each real $p>1$ there is $S_p>0$ such that every measurable complex $L^p$ representative has the displayed principal value almost everywhere; choosing that value where it exists and zero on the exceptional null set produces another $L^p$ representative with norm at most $S_p$ times the original norm.
+% CF-DERIVED-RESULT-END: AIM-PLANAR-BEURLING-LP-BOUND
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: AIM-PLANAR-BEURLING-LP-BOUND
+\begin{lstlisting}
+definition aim_planar_beurling_truncation ::
+  "aim_planar_field \<Rightarrow> real \<Rightarrow> aim_planar_point \<Rightarrow> complex"
+where
+  "aim_planar_beurling_truncation f epsilon z =
+    - inverse (of_real pi :: complex) *
+      integral\<^sup>L lborel
+        (\<lambda>y. if epsilon <
+              norm (aim_point_as_complex z - aim_point_as_complex y)
+          then f y * inverse
+            ((aim_point_as_complex z - aim_point_as_complex y)\<^sup>2)
+          else 0)"
+
+definition aim_planar_beurling_pv_exists ::
+  "aim_planar_field \<Rightarrow> aim_planar_point \<Rightarrow> bool"
+where
+  "aim_planar_beurling_pv_exists f z \<longleftrightarrow>
+    (\<exists>w::complex.
+      ((\<lambda>epsilon::real.
+          aim_planar_beurling_truncation f epsilon z) \<longlongrightarrow> w)
+        (at_right 0))"
+
+definition aim_planar_beurling_transform ::
+  "aim_planar_field \<Rightarrow> aim_planar_field"
+where
+  "aim_planar_beurling_transform f z =
+    (if aim_planar_beurling_pv_exists f z then
+      Lim (at_right 0)
+        (\<lambda>epsilon::real.
+          aim_planar_beurling_truncation f epsilon z)
+    else 0)"
+
+definition aim_planar_beurling_lp_claim :: bool
+where
+  "aim_planar_beurling_lp_claim \<longleftrightarrow>
+    (\<forall>p::real. 1 < p \<longrightarrow>
+      (\<exists>S_p::real. 0 < S_p \<and>
+        (\<forall>f. aim_complex_lp_on_plane p f \<longrightarrow>
+          (AE z in lborel. aim_planar_beurling_pv_exists f z) \<and>
+          aim_complex_lp_on_plane p (aim_planar_beurling_transform f) \<and>
+          aim_complex_lp_norm p (aim_planar_beurling_transform f)
+            \<le> S_p * aim_complex_lp_norm p f)))"
+\end{lstlisting}
+% CF-ISABELLE-END: AIM-PLANAR-BEURLING-LP-BOUND
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: AIM-PLANAR-BEURLING-LP-BOUND
+For every finite real exponent $p>1$, one positive bound $S_p$ works for all explicit complex $L^p(\mathbb R^2)$ fields. Their truncated Beurling integrals converge almost everywhere; the selected principal-value representative is again in the same $L^p$ model and obeys the stated uniform norm estimate.
+% CF-BACK-TRANSLATION-END: AIM-PLANAR-BEURLING-LP-BOUND
+% CF-LITERATURE-ENTRY-END: AIM-PLANAR-BEURLING-LP-BOUND
+
+% CF-LITERATURE-ENTRY-BEGIN: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES
+\subsubsection{\texttt{\detokenize{AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{aim_planar_cauchy_beurling_derivatives_claim}}.\par
+\noindent\textit{Relationship to source:} derived.
+
+\reviewlabel{Source attribution and locator}
+% CF-SOURCE-ATTRIBUTION-BEGIN: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES/SOURCE-1
+Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Definition 4.0.9 and formulas (4.6), (4.8), (4.16)-(4.17), Theorem 4.0.10, the Lp extension discussion on printed pp. 96-97, and Theorem 4.5.3, printed pp. 93-98 and 129, ISBN 978-0-691-13777-3
+% CF-SOURCE-ATTRIBUTION-END: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES/SOURCE-1
+
+\reviewlabel{Quoted source theorem statement}
+% CF-SOURCE-STATEMENT-BEGIN: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES/SOURCE-1
+\begin{sourcequote}
+AIM Definition 4.0.9 and (4.6) give $Cf(z)=\pi^{-1}\int f(\tau)/(z-\tau)\,d\tau$; (4.8) gives $\bar\partial C=I$ on test functions; (4.16)--(4.17) give $\partial(Cf)=Sf$ with the principal-value Beurling normalization. The discussion after (4.25), together with Theorems 4.0.10 and 4.5.3, extends these identities to $L^p(\mathbb C)$, $1<p<\infty$; the convergence discussion also makes $Cf$ locally integrable almost everywhere for compactly supported integrable $f$.
+\end{sourcequote}
+% CF-SOURCE-STATEMENT-END: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES/SOURCE-1
+
+\reviewlabel{Formalized derived mathematical result}
+% CF-DERIVED-RESULT-BEGIN: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES
+For a bounded-support measurable $f\in L^p(\mathbb R^2)$, $p>1$, the explicit Cauchy representative has distributional Cartesian gradient $(f+Sf,\, i(Sf-f))$. This is precisely the simultaneous pair of Wirtinger identities $\bar\partial(Cf)=f$ and $\partial(Cf)=Sf$, with every test-product integrability condition made explicit.
+% CF-DERIVED-RESULT-END: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES
+\begin{lstlisting}
+definition aim_planar_cauchy_beurling_gradient ::
+  "aim_planar_field \<Rightarrow> slp_gradient_field"
+where
+  "aim_planar_cauchy_beurling_gradient f x =
+    (\<chi> i. if i = 0 then
+      f x + aim_planar_beurling_transform f x
+    else
+      \<i> * (aim_planar_beurling_transform f x - f x))"
+
+definition aim_planar_cauchy_beurling_derivatives_claim :: bool
+where
+  "aim_planar_cauchy_beurling_derivatives_claim \<longleftrightarrow>
+    (\<forall>p::real. 1 < p \<longrightarrow>
+      (\<forall>f. aim_complex_lp_on_plane p f \<and> bounded {x. f x \<noteq> 0}
+        \<longrightarrow>
+        slp_weak_gradient_on UNIV
+          (aim_planar_cauchy_transform f)
+          (aim_planar_cauchy_beurling_gradient f)))"
+\end{lstlisting}
+% CF-ISABELLE-END: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES
+Whenever $p>1$ and $f$ is an explicit complex $L^p$ field with bounded nonzero set, the project weak-gradient predicate holds on the whole plane for $Cf$ and the vector field whose components are $f+Sf$ and $i(Sf-f)$.
+% CF-BACK-TRANSLATION-END: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES
+% CF-LITERATURE-ENTRY-END: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES
+
+% CF-LITERATURE-ENTRY-BEGIN: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE
+\subsubsection{\texttt{\detokenize{AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{aim_planar_cauchy_test_left_inverse_claim}}.\par
+\noindent\textit{Relationship to source:} derived.
+
+\reviewlabel{Source attribution and locator}
+% CF-SOURCE-ATTRIBUTION-BEGIN: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE/SOURCE-1
+Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Definition 4.0.9 and formulas (4.6)-(4.8), printed p. 93 / PDF p. 112, ISBN 978-0-691-13777-3
+% CF-SOURCE-ATTRIBUTION-END: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE/SOURCE-1
+
+\reviewlabel{Quoted source theorem statement}
+% CF-SOURCE-STATEMENT-BEGIN: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE/SOURCE-1
+\begin{sourcequote}
+For $\phi\in C_c^\infty(\mathbb C)$, AIM Definition 4.0.9 and (4.6) define $C\phi(z)=\pi^{-1}\int_{\mathbb C}\phi(\tau)/(z-\tau)\,d\tau$. Formula (4.8) states the two-sided identity $C\circ\bar\partial=\bar\partial\circ C=I$ on this test-function class.
+\end{sourcequote}
+% CF-SOURCE-STATEMENT-END: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE/SOURCE-1
+
+\reviewlabel{Formalized derived mathematical result}
+% CF-DERIVED-RESULT-BEGIN: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE
+Taking only the left-inverse half and writing $\bar\partial\phi=(\partial_x\phi+i\partial_y\phi)/2$ in the project coordinates gives $C(\bar\partial\phi)=\phi$ as equality of complex-valued functions on the whole plane.
+% CF-DERIVED-RESULT-END: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE
+\begin{lstlisting}
+definition aim_planar_classical_dbar ::
+  "slp_scalar_field \<Rightarrow> slp_scalar_field"
+where
+  "aim_planar_classical_dbar phi x =
+    (slp_complex_partial_derivative phi 0 x +
+      \<i> * slp_complex_partial_derivative phi 1 x) / 2"
+
+definition aim_planar_cauchy_test_left_inverse_claim :: bool
+where
+  "aim_planar_cauchy_test_left_inverse_claim \<longleftrightarrow>
+    (\<forall>phi. slp_test_function_on UNIV phi \<longrightarrow>
+      aim_planar_cauchy_transform (aim_planar_classical_dbar phi) = phi)"
+\end{lstlisting}
+% CF-ISABELLE-END: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE
+Every globally smooth compactly supported complex test function is recovered exactly by applying the normalized planar Cauchy transform to its classical $\bar\partial$ derivative.
+% CF-BACK-TRANSLATION-END: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE
+% CF-LITERATURE-ENTRY-END: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE
+
+% CF-LITERATURE-ENTRY-BEGIN: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV
+\subsubsection{\texttt{\detokenize{AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{aim_planar_hls_cauchy_claim}}.\par
+\noindent\textit{Relationship to source:} derived.
+
+\reviewlabel{Source attribution and locator}
+% CF-SOURCE-ATTRIBUTION-BEGIN: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV/SOURCE-1
+Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Theorem 4.3.8, printed p. 111; normalization and HLS estimate printed pp. 109-110
+% CF-SOURCE-ATTRIBUTION-END: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV/SOURCE-1
+
+\reviewlabel{Quoted source theorem statement}
+% CF-SOURCE-STATEMENT-BEGIN: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV/SOURCE-1
+\begin{sourcequote}
+AIM Theorem 4.3.8 states: for every $1<p<2$, the Cauchy transform is continuous from $L^p(\mathbb C)$ to $L^{2p/(2-p)}(\mathbb C)$; moreover $\|C\phi\|_{2p/(2-p)}\leq C\,\|\phi\|_p/((p-1)(2-p))$ for one absolute constant $C$. The transform uses the normalization $C\phi(z)=\pi^{-1}\int\phi(\tau)/(z-\tau)\,d\tau$.
+\end{sourcequote}
+% CF-SOURCE-STATEMENT-END: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV/SOURCE-1
+
+\reviewlabel{Formalized derived mathematical result}
+% CF-DERIVED-RESULT-BEGIN: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV
+At representative level, there is one positive real $C$, independent of $p$ and $f$, such that each measurable complex $L^p$ field with $1<p<2$ is sent by the normalized totalized Cauchy representative to the explicit $L^{2p/(2-p)}$ model with exactly the displayed norm bound.
+% CF-DERIVED-RESULT-END: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV
+\begin{lstlisting}
+type_synonym aim_planar_point = "real ^ 2"
+type_synonym aim_planar_field = "aim_planar_point \<Rightarrow> complex"
+
+definition aim_point_as_complex :: "aim_planar_point \<Rightarrow> complex" where
+  "aim_point_as_complex x = Complex (x $ 0) (x $ 1)"
+
+definition aim_complex_lp_on_plane ::
+  "real \<Rightarrow> aim_planar_field \<Rightarrow> bool"
+where
+  "aim_complex_lp_on_plane p f \<longleftrightarrow>
+    f \<in> borel_measurable lborel \<and>
+    integrable lborel (\<lambda>x. norm (f x) powr p)"
+
+definition aim_complex_lp_norm ::
+  "real \<Rightarrow> aim_planar_field \<Rightarrow> real"
+where
+  "aim_complex_lp_norm p f =
+    (integral\<^sup>L lborel (\<lambda>x. norm (f x) powr p)) powr (1 / p)"
+
+definition aim_hls_target_exponent :: "real \<Rightarrow> real" where
+  "aim_hls_target_exponent p = 2 * p / (2 - p)"
+
+definition aim_planar_cauchy_integrand ::
+  "aim_planar_field \<Rightarrow> aim_planar_point \<Rightarrow>
+    aim_planar_point \<Rightarrow> complex"
+where
+  "aim_planar_cauchy_integrand f z y =
+    f y * inverse (aim_point_as_complex z - aim_point_as_complex y)"
+
+definition aim_planar_cauchy_transform ::
+  "aim_planar_field \<Rightarrow> aim_planar_field"
+where
+  "aim_planar_cauchy_transform f z =
+    inverse (of_real pi :: complex) *
+      integral\<^sup>L lborel (aim_planar_cauchy_integrand f z)"
+
+definition aim_planar_hls_cauchy_claim :: bool where
+  "aim_planar_hls_cauchy_claim \<longleftrightarrow>
+    (\<exists>C::real. 0 < C \<and>
+      (\<forall>p f. 1 < p \<and> p < 2 \<and> aim_complex_lp_on_plane p f
+        \<longrightarrow>
+        aim_complex_lp_on_plane (aim_hls_target_exponent p)
+          (aim_planar_cauchy_transform f) \<and>
+        aim_complex_lp_norm (aim_hls_target_exponent p)
+            (aim_planar_cauchy_transform f)
+          \<le> C / ((p - 1) * (2 - p)) * aim_complex_lp_norm p f))"
+\end{lstlisting}
+% CF-ISABELLE-END: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV
+One absolute positive constant controls every exponent $1<p<2$ and every explicit complex $L^p$ field: the normalized Cauchy transform belongs to exponent $2p/(2-p)$ and its explicit norm is at most $C/((p-1)(2-p))$ times the input norm.
+% CF-BACK-TRANSLATION-END: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV
+% CF-LITERATURE-ENTRY-END: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV
+
+% CF-LITERATURE-ENTRY-BEGIN: AIM-PLANAR-RIESZ-POTENTIAL-HLS
+\subsubsection{\texttt{\detokenize{AIM-PLANAR-RIESZ-POTENTIAL-HLS}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{aim_planar_riesz_hls_claim}}.\par
+\noindent\textit{Relationship to source:} derived.
+
+\reviewlabel{Source attribution and locator}
+% CF-SOURCE-ATTRIBUTION-BEGIN: AIM-PLANAR-RIESZ-POTENTIAL-HLS/SOURCE-1
+Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, displayed Hardy-Littlewood-Sobolev inequality on printed p. 110 / PDF p. 129, ISBN 978-0-691-13777-3
+% CF-SOURCE-ATTRIBUTION-END: AIM-PLANAR-RIESZ-POTENTIAL-HLS/SOURCE-1
+
+\reviewlabel{Quoted source theorem statement}
+% CF-SOURCE-STATEMENT-BEGIN: AIM-PLANAR-RIESZ-POTENTIAL-HLS/SOURCE-1
+\begin{sourcequote}
+The Hardy--Littlewood--Sobolev inequality displayed on AIM printed page 110 states that for $1<p<2$ there is an absolute $C$ such that $\|z\mapsto\int_{\mathbb C}|\phi(\tau)|/|z-\tau|\,d\tau\|_{2p/(2-p)}\leq C\|\phi\|_p/((p-1)(2-p))$.
+\end{sourcequote}
+% CF-SOURCE-STATEMENT-END: AIM-PLANAR-RIESZ-POTENTIAL-HLS/SOURCE-1
+
+\reviewlabel{Formalized derived mathematical result}
+% CF-DERIVED-RESULT-BEGIN: AIM-PLANAR-RIESZ-POTENTIAL-HLS
+For $1<p<2$ and every explicit complex $L^p$ field, the positive kernel is ordinarily integrable for almost every output point. Its totalized planar potential, with no $1/\pi$ factor, is a measurable real field in $L^{2p/(2-p)}$ and obeys the displayed bound with one absolute positive constant.
+% CF-DERIVED-RESULT-END: AIM-PLANAR-RIESZ-POTENTIAL-HLS
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: AIM-PLANAR-RIESZ-POTENTIAL-HLS
+\begin{lstlisting}
+definition aim_real_lp_on_plane ::
+  "real \<Rightarrow> (aim_planar_point \<Rightarrow> real) \<Rightarrow> bool"
+where
+  "aim_real_lp_on_plane p g \<longleftrightarrow>
+    g \<in> borel_measurable lborel \<and>
+    integrable lborel (\<lambda>x. abs (g x) powr p)"
+
+definition aim_real_lp_norm ::
+  "real \<Rightarrow> (aim_planar_point \<Rightarrow> real) \<Rightarrow> real"
+where
+  "aim_real_lp_norm p g =
+    (integral\<^sup>L lborel (\<lambda>x. abs (g x) powr p)) powr (1 / p)"
+
+definition aim_planar_riesz_integrand ::
+  "aim_planar_field \<Rightarrow> aim_planar_point \<Rightarrow>
+    aim_planar_point \<Rightarrow> real"
+where
+  "aim_planar_riesz_integrand f z y =
+    norm (f y) *
+      inverse (norm (aim_point_as_complex z - aim_point_as_complex y))"
+
+definition aim_planar_riesz_potential ::
+  "aim_planar_field \<Rightarrow> aim_planar_point \<Rightarrow> real"
+where
+  "aim_planar_riesz_potential f z =
+    integral\<^sup>L lborel (aim_planar_riesz_integrand f z)"
+
+definition aim_planar_riesz_hls_claim :: bool where
+  "aim_planar_riesz_hls_claim \<longleftrightarrow>
+    (\<exists>C::real. 0 < C \<and>
+      (\<forall>p f. 1 < p \<and> p < 2 \<and> aim_complex_lp_on_plane p f
+        \<longrightarrow>
+        (AE z in lborel. integrable lborel (aim_planar_riesz_integrand f z)) \<and>
+        aim_real_lp_on_plane (aim_hls_target_exponent p)
+          (aim_planar_riesz_potential f) \<and>
+        aim_real_lp_norm (aim_hls_target_exponent p)
+            (aim_planar_riesz_potential f)
+          \<le> C / ((p - 1) * (2 - p)) * aim_complex_lp_norm p f))"
+\end{lstlisting}
+% CF-ISABELLE-END: AIM-PLANAR-RIESZ-POTENTIAL-HLS
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: AIM-PLANAR-RIESZ-POTENTIAL-HLS
+There is one positive constant such that, for $1<p<2$, the positive Riesz potential of every complex $L^p$ representative is defined almost everywhere, lies in the explicit real target $L^{2p/(2-p)}$ class, and satisfies the HLS norm estimate.
+% CF-BACK-TRANSLATION-END: AIM-PLANAR-RIESZ-POTENTIAL-HLS
+% CF-LITERATURE-ENTRY-END: AIM-PLANAR-RIESZ-POTENTIAL-HLS
+
+% CF-LITERATURE-ENTRY-BEGIN: EVANS-COMPACT-SMOOTH-L1-DENSITY
+\subsubsection{\texttt{\detokenize{EVANS-COMPACT-SMOOTH-L1-DENSITY}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{evans_compact_smooth_l1_density_claim}}.\par
+\noindent\textit{Relationship to source:} derived.
+
+\reviewlabel{Source attribution and locator}
+% CF-SOURCE-ATTRIBUTION-BEGIN: EVANS-COMPACT-SMOOTH-L1-DENSITY/SOURCE-1
+Lawrence C. Evans, Partial Differential Equations, second edition, Graduate Studies in Mathematics 19, American Mathematical Society, 2010, Appendix C.5, standard mollifier printed p. 713 and Theorem 7(i),(iv), printed pp. 714-716
+% CF-SOURCE-ATTRIBUTION-END: EVANS-COMPACT-SMOOTH-L1-DENSITY/SOURCE-1
+
+\reviewlabel{Quoted source theorem statement}
+% CF-SOURCE-STATEMENT-BEGIN: EVANS-COMPACT-SMOOTH-L1-DENSITY/SOURCE-1
+\begin{sourcequote}
+Evans Appendix C.5 defines the standard compactly supported smooth mollifier and, in Theorem 7(i),(iv), states that mollifications are smooth on the interior where they are defined and converge to $f$ in $L^p_{\mathrm{loc}}(U)$ for every $1\leq p<\infty$. The mollifier has support in the ball of its scale.
+\end{sourcequote}
+% CF-SOURCE-STATEMENT-END: EVANS-COMPACT-SMOOTH-L1-DENSITY/SOURCE-1
+
+\reviewlabel{Formalized derived mathematical result}
+% CF-DERIVED-RESULT-BEGIN: EVANS-COMPACT-SMOOTH-L1-DENSITY
+Truncate a complex $L^1(\mathbb R^n)$ function to a large ball, mollify its real and imaginary parts at one common small scale, and use support propagation plus local-to-global convergence. Thus every complex $L^1$ field is approximated in global $L^1$ norm by a globally smooth compactly supported integrable amplitude.
+% CF-DERIVED-RESULT-END: EVANS-COMPACT-SMOOTH-L1-DENSITY
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: EVANS-COMPACT-SMOOTH-L1-DENSITY
+\begin{lstlisting}
+definition evans_compact_smooth_l1_density_claim ::
+  "'n::finite itself \<Rightarrow> bool"
+where
+  "evans_compact_smooth_l1_density_claim dimension_type \<longleftrightarrow>
+    (\<forall>(F :: real^'n \<Rightarrow> complex).
+      integrable lborel F \<longrightarrow>
+      (\<forall>epsilon > 0.
+        \<exists>u.
+          hormander_compact_smooth_amplitude u \<and>
+          integral\<^sup>L lborel (\<lambda>x. norm (F x - u x)) < epsilon))"
+\end{lstlisting}
+% CF-ISABELLE-END: EVANS-COMPACT-SMOOTH-L1-DENSITY
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: EVANS-COMPACT-SMOOTH-L1-DENSITY
+In every finite dimension, each integrable complex field and each $\varepsilon>0$ admit a globally smooth compactly supported integrable approximant whose $L^1$ error is less than $\varepsilon$.
+% CF-BACK-TRANSLATION-END: EVANS-COMPACT-SMOOTH-L1-DENSITY
+% CF-LITERATURE-ENTRY-END: EVANS-COMPACT-SMOOTH-L1-DENSITY
+
+% CF-LITERATURE-ENTRY-BEGIN: EVANS-COMPACT-SMOOTH-LP-DENSITY
+\subsubsection{\texttt{\detokenize{EVANS-COMPACT-SMOOTH-LP-DENSITY}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{evans_compact_smooth_lp_density_claim}}.\par
+\noindent\textit{Relationship to source:} derived.
+
+\reviewlabel{Source attribution and locator}
+% CF-SOURCE-ATTRIBUTION-BEGIN: EVANS-COMPACT-SMOOTH-LP-DENSITY/SOURCE-1
+Lawrence C. Evans, Partial Differential Equations, 2nd ed., Graduate Studies in Mathematics 19, American Mathematical Society, 2010, Appendix C.5 standard mollifier and Theorem 7(i),(iv), printed pp. 713-716, ISBN 978-0-8218-4974-3
+% CF-SOURCE-ATTRIBUTION-END: EVANS-COMPACT-SMOOTH-LP-DENSITY/SOURCE-1
+
+\reviewlabel{Quoted source theorem statement}
+% CF-SOURCE-STATEMENT-BEGIN: EVANS-COMPACT-SMOOTH-LP-DENSITY/SOURCE-1
+\begin{sourcequote}
+Evans Appendix C.5 gives a compactly supported smooth standard mollifier and Theorem 7(i),(iv): mollification is smooth in the interior and, for every finite $1\leq p<\infty$, converges to the original function in local $L^p$. The scaled mollifier is supported in the corresponding small ball.
+\end{sourcequote}
+% CF-SOURCE-STATEMENT-END: EVANS-COMPACT-SMOOTH-LP-DENSITY/SOURCE-1
+
+\reviewlabel{Formalized derived mathematical result}
+% CF-DERIVED-RESULT-BEGIN: EVANS-COMPACT-SMOOTH-LP-DENSITY
+After large-ball truncation and one common-scale mollification of real and imaginary parts, every measurable complex field with finite $q$th-power integral, $1\leq q<\infty$, has a globally smooth compactly supported approximant with global rooted $L^q$ error below any prescribed positive tolerance.
+% CF-DERIVED-RESULT-END: EVANS-COMPACT-SMOOTH-LP-DENSITY
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: EVANS-COMPACT-SMOOTH-LP-DENSITY
+\begin{lstlisting}
+definition evans_compact_smooth_lp_density_claim ::
+  "'n::finite itself \<Rightarrow> bool"
+where
+  "evans_compact_smooth_lp_density_claim dimension_type \<longleftrightarrow>
+    (\<forall>q (F :: real^'n \<Rightarrow> complex) epsilon.
+      1 \<le> q \<and>
+      F \<in> borel_measurable lborel \<and>
+      integrable lborel (\<lambda>x. norm (F x) powr q) \<and>
+      0 < epsilon
+      \<longrightarrow>
+      (\<exists>u.
+        hormander_compact_smooth_amplitude u \<and>
+        (integral\<^sup>L lborel
+          (\<lambda>x. norm (F x - u x) powr q)) powr (1 / q) < epsilon))"
+\end{lstlisting}
+% CF-ISABELLE-END: EVANS-COMPACT-SMOOTH-LP-DENSITY
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: EVANS-COMPACT-SMOOTH-LP-DENSITY
+For every finite real $q\geq1$, every measurable complex $L^q$ field, and every positive $\varepsilon$, a compactly supported smooth integrable amplitude exists whose explicit $L^q$ distance from the field is less than $\varepsilon$.
+% CF-BACK-TRANSLATION-END: EVANS-COMPACT-SMOOTH-LP-DENSITY
+% CF-LITERATURE-ENTRY-END: EVANS-COMPACT-SMOOTH-LP-DENSITY
+
+% CF-LITERATURE-ENTRY-BEGIN: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY
+\subsubsection{\texttt{\detokenize{EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{evans_compact_support_w1p_zero_density_claim}}.\par
+\noindent\textit{Relationship to source:} derived.
+
+\reviewlabel{Source attribution and locator}
+% CF-SOURCE-ATTRIBUTION-BEGIN: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY/SOURCE-1
+Lawrence C. Evans, Partial Differential Equations, second edition, Graduate Studies in Mathematics 19, American Mathematical Society, 2010, definition of C\_c\textasciicircum{}infinity(U), printed p. 256; definition of W\_0\textasciicircum{}\{k,p\}(U), printed p. 259; Section 5.3.1, Theorem 1 and proof, printed pp. 264-265; Appendix C.5, standard mollifier and Theorem 7(i),(iv), printed pp. 713-716; ISBN 978-0-8218-4974-3
+% CF-SOURCE-ATTRIBUTION-END: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY/SOURCE-1
+
+\reviewlabel{Quoted source theorem statement}
+% CF-SOURCE-STATEMENT-BEGIN: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY/SOURCE-1
+\begin{sourcequote}
+For an open Euclidean domain $U\subseteq\mathbb R^n$ and a finite exponent $1\leq p<\infty$, Evans defines $C_c^\infty(U)$ as smooth functions compactly supported in $U$ and $W_0^{k,p}(U)$ as its closure in $W^{k,p}(U)$. Section 5.3.1, Theorem 1 constructs local mollifications of a $W^{k,p}$ function, identifies their derivatives with mollified weak derivatives, and obtains componentwise local $L^p$ convergence; Appendix C.5 supplies the smooth compactly supported mollifier and its finite-$p$ convergence.
+\end{sourcequote}
+% CF-SOURCE-STATEMENT-END: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY/SOURCE-1
+
+\reviewlabel{Formalized derived mathematical result}
+% CF-DERIVED-RESULT-BEGIN: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY
+For $p\geq1$ in the plane, if a project $W^{1,p}$ function and both recorded weak-gradient components vanish outside one compact $K\subseteq X$ with $X$ open, sufficiently small mollifications remain compactly supported in $X$ and converge simultaneously in the project graph norm. Hence the pair belongs to project $W^{1,p}_0(X)$.
+% CF-DERIVED-RESULT-END: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY
+\begin{lstlisting}
+definition evans_compact_support_w1p_zero_density_claim :: bool
+where
+  "evans_compact_support_w1p_zero_density_claim \<longleftrightarrow>
+    (\<forall>p X u Du K.
+      1 \<le> p \<and>
+      open X \<and>
+      compact K \<and>
+      K \<subseteq> X \<and>
+      slp_w1p_pair_on p X u Du \<and>
+      (\<forall>x \<in> X - K. u x = 0 \<and> (\<forall>i. Du x $ i = 0))
+      \<longrightarrow> slp_w1p_zero_pair_on p X u Du)"
+\end{lstlisting}
+% CF-ISABELLE-END: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY
+Every project $W^{1,p}$ pair with $p\geq1$ and common pointwise compact support strictly inside an open planar set belongs to the project zero-Sobolev closure, including simultaneous approximation of both weak-gradient components.
+% CF-BACK-TRANSLATION-END: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY
+% CF-LITERATURE-ENTRY-END: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY
+
+% CF-LITERATURE-ENTRY-BEGIN: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL
+\subsubsection{\texttt{\detokenize{HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{hormander_euclidean_l2_fourier_plancherel_claim}}.\par
+\noindent\textit{Relationship to source:} derived.
+
+\reviewlabel{Source attribution and locator}
+% CF-SOURCE-ATTRIBUTION-BEGIN: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL/SOURCE-1
+Lars Hormander, The Analysis of Linear Partial Differential Operators I: Distribution Theory and Fourier Analysis, first edition, Springer-Verlag, 1983, Definition 7.1.1, formulas (7.1.3) and (7.1.8), Definition 7.1.9, and Theorems 7.1.10-7.1.11, ISBN 3-540-12104-8 / 0-387-12104-8, DOI 10.1007/978-3-642-96750-4.
+% CF-SOURCE-ATTRIBUTION-END: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL/SOURCE-1
+
+\reviewlabel{Quoted source theorem statement}
+% CF-SOURCE-STATEMENT-BEGIN: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL/SOURCE-1
+\begin{sourcequote}
+H\"ormander Definition 7.1.1 and (7.1.3) define $\widehat f(\xi)=\int e^{-i\langle x,\xi\rangle}f(x)\,dx$ for $f\in L^1(\mathbb R^n)$. Parseval (7.1.8) has factor $(2\pi)^{-n}$. Definition 7.1.9 and Theorem 7.1.10 extend the transform to tempered distributions and give $\widehat{\widehat u}(x)=(2\pi)^n u(-x)$. Theorem 7.1.11 states that $u\in L^2$ implies $\widehat u\in L^2$ and that Parseval holds for all $L^2$ functions.
+\end{sourcequote}
+% CF-SOURCE-STATEMENT-END: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL/SOURCE-1
+
+\reviewlabel{Formalized derived mathematical result}
+% CF-DERIVED-RESULT-BEGIN: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL
+Specializing to $n=2$ and selecting measurable representatives gives an operator on explicit complex fields that maps $L^2$ to $L^2$, agrees almost everywhere with the unnormalised negative-exponential integral on $L^1\cap L^2$, scales squared norm by $(2\pi)^2$, and squares to $(2\pi)^2$ times reflection almost everywhere.
+% CF-DERIVED-RESULT-END: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL
+\begin{lstlisting}
+type_synonym hormander_fourier_point = "real ^ 2"
+type_synonym hormander_fourier_field =
+  "hormander_fourier_point \<Rightarrow> complex"
+
+definition hormander_fourier_l2_on_plane ::
+  "hormander_fourier_field \<Rightarrow> bool"
+where
+  "hormander_fourier_l2_on_plane f \<longleftrightarrow>
+    f \<in> borel_measurable lborel \<and>
+    integrable lborel (\<lambda>x. norm (f x) ^ 2)"
+
+definition hormander_fourier_phase ::
+  "hormander_fourier_point \<Rightarrow> hormander_fourier_point \<Rightarrow>
+    complex"
+where
+  "hormander_fourier_phase xi x =
+    exp (\<i> * of_real (- inner x xi))"
+
+definition hormander_fourier_l1_transform ::
+  "hormander_fourier_field \<Rightarrow> hormander_fourier_field"
+where
+  "hormander_fourier_l1_transform f xi =
+    integral\<^sup>L lborel (\<lambda>x. hormander_fourier_phase xi x * f x)"
+
+definition hormander_euclidean_l2_fourier_plancherel_claim :: bool
+where
+  "hormander_euclidean_l2_fourier_plancherel_claim \<longleftrightarrow>
+    (\<exists>fourier_l2 :: hormander_fourier_field \<Rightarrow>
+        hormander_fourier_field.
+      (\<forall>f. hormander_fourier_l2_on_plane f \<longrightarrow>
+        hormander_fourier_l2_on_plane (fourier_l2 f)) \<and>
+      (\<forall>f. hormander_fourier_l2_on_plane f \<and> integrable lborel f
+        \<longrightarrow> (AE xi in lborel.
+          fourier_l2 f xi = hormander_fourier_l1_transform f xi)) \<and>
+      (\<forall>f. hormander_fourier_l2_on_plane f \<longrightarrow>
+        integral\<^sup>L lborel (\<lambda>xi. norm (fourier_l2 f xi) ^ 2) =
+          (2 * pi) ^ 2 *
+            integral\<^sup>L lborel (\<lambda>x. norm (f x) ^ 2)) \<and>
+      (\<forall>f. hormander_fourier_l2_on_plane f \<longrightarrow>
+        (AE x in lborel.
+          fourier_l2 (fourier_l2 f) x =
+            of_real ((2 * pi) ^ 2) * f (-x))))"
+\end{lstlisting}
+% CF-ISABELLE-END: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL
+There exists a representative-level planar Fourier operator preserving explicit $L^2$ membership, agreeing almost everywhere with the $L^1$ integral where both apply, satisfying the $(2\pi)^2$ squared-norm identity, and obeying the almost-everywhere double-transform/reflection formula.
+% CF-BACK-TRANSLATION-END: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL
+% CF-LITERATURE-ENTRY-END: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL
+
+% CF-LITERATURE-ENTRY-BEGIN: HORMANDER-QUADRATIC-STATIONARY-PHASE
+\subsubsection{\texttt{\detokenize{HORMANDER-QUADRATIC-STATIONARY-PHASE}}}
+\noindent\textit{Formal identifier:} \texttt{\detokenize{hormander_quadratic_stationary_phase_decay_claim}}.\par
+\noindent\textit{Relationship to source:} derived.
+
+\reviewlabel{Source attribution and locator}
+% CF-SOURCE-ATTRIBUTION-BEGIN: HORMANDER-QUADRATIC-STATIONARY-PHASE/SOURCE-1
+Lars Hörmander, The Analysis of Linear Partial Differential Operators I, first edition, Springer-Verlag, 1983, Lemma 7.7.3, equations (7.7.7)-(7.7.8), printed pp. 218-219
+% CF-SOURCE-ATTRIBUTION-END: HORMANDER-QUADRATIC-STATIONARY-PHASE/SOURCE-1
+
+\reviewlabel{Quoted source theorem statement}
+% CF-SOURCE-STATEMENT-BEGIN: HORMANDER-QUADRATIC-STATIONARY-PHASE/SOURCE-1
+\begin{sourcequote}
+H\"ormander Lemma 7.7.3 assumes a symmetric nondegenerate matrix $A$ with $\operatorname{Im}A\geq0$. For every integer $k>0$, integer $s>n/2$, and Schwartz amplitude $u$, equation (7.7.7) bounds the oscillatory integral $\int u(x)e^{i\omega\langle Ax,x\rangle/2}\,dx$ minus its determinant factor times the finite expansion $T_k(\omega)$ by a constant times $|\omega|^{-n/2-k}$ and finitely many $L^2$ norms of derivatives of $u$; equation (7.7.8) defines that expansion.
+\end{sourcequote}
+% CF-SOURCE-STATEMENT-END: HORMANDER-QUADRATIC-STATIONARY-PHASE/SOURCE-1
+
+\reviewlabel{Formalized derived mathematical result}
+% CF-DERIVED-RESULT-BEGIN: HORMANDER-QUADRATIC-STATIONARY-PHASE
+For a real symmetric matrix with trivial kernel and a compactly supported smooth integrable amplitude in any finite positive dimension, take $k=1$. The determinant main term decays like $\omega^{-n/2}$ and the remainder faster, so the displayed quadratic oscillatory integral tends to zero as the real parameter tends to positive infinity.
+% CF-DERIVED-RESULT-END: HORMANDER-QUADRATIC-STATIONARY-PHASE
+
+\reviewlabel{Isabelle code}
+% CF-ISABELLE-BEGIN: HORMANDER-QUADRATIC-STATIONARY-PHASE
+\begin{lstlisting}
+definition hormander_compact_smooth_amplitude ::
+  "(real^'n::finite \<Rightarrow> complex) \<Rightarrow> bool"
+where
+  "hormander_compact_smooth_amplitude u \<longleftrightarrow>
+    smooth_on UNIV u \<and>
+    compact (closure {x. u x \<noteq> 0}) \<and>
+    integrable lborel u"
+
+definition hormander_real_symmetric_matrix ::
+  "(real^'n::finite^'n) \<Rightarrow> bool"
+where
+  "hormander_real_symmetric_matrix A \<longleftrightarrow>
+    (\<forall>i j. A $ i $ j = A $ j $ i)"
+
+definition hormander_real_nondegenerate_matrix ::
+  "(real^'n::finite^'n) \<Rightarrow> bool"
+where
+  "hormander_real_nondegenerate_matrix A \<longleftrightarrow>
+    (\<forall>x. A *v x = 0 \<longrightarrow> x = 0)"
+
+definition hormander_quadratic_oscillatory_integral ::
+  "(real^'n::finite^'n) \<Rightarrow> (real^'n \<Rightarrow> complex) \<Rightarrow>
+    real \<Rightarrow> complex"
+where
+  "hormander_quadratic_oscillatory_integral A u omega =
+    integral\<^sup>L lborel
+      (\<lambda>x. exp (\<i> * of_real
+        (omega * inner x (A *v x) / 2)) * u x)"
+
+definition hormander_quadratic_stationary_phase_decay_claim ::
+  "'n::finite itself \<Rightarrow> bool"
+where
+  "hormander_quadratic_stationary_phase_decay_claim dimension_type \<longleftrightarrow>
+    (\<forall>(A :: real^'n^'n) u.
+      hormander_real_symmetric_matrix A \<and>
+      hormander_real_nondegenerate_matrix A \<and>
+      hormander_compact_smooth_amplitude u
+      \<longrightarrow>
+      ((\<lambda>omega. hormander_quadratic_oscillatory_integral A u omega)
+        \<longlongrightarrow> 0) at_top)"
+\end{lstlisting}
+% CF-ISABELLE-END: HORMANDER-QUADRATIC-STATIONARY-PHASE
+
+\reviewlabel{Independent English translation of the Isabelle code}
+% CF-BACK-TRANSLATION-BEGIN: HORMANDER-QUADRATIC-STATIONARY-PHASE
+In every finite coordinate dimension, a real symmetric nondegenerate matrix and a globally smooth compactly supported integrable complex amplitude give a quadratic oscillatory integral that converges to zero as $\omega\to+\infty$.
+% CF-BACK-TRANSLATION-END: HORMANDER-QUADRATIC-STATIONARY-PHASE
+% CF-LITERATURE-ENTRY-END: HORMANDER-QUADRATIC-STATIONARY-PHASE
+% CF-LITERATURE-ENTRIES-END
+
+\clearpage
+\section{Bibliography}
+% CF-BIBLIOGRAPHY-BEGIN
+% CF-BIBLIOGRAPHY-ENTRY: AIM-PLANAR-BEURLING-LP-BOUND
+\subsection*{\texttt{\detokenize{AIM-PLANAR-BEURLING-LP-BOUND}}}
+Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, formula (4.17), Theorem 4.0.10, and Theorem 4.5.3 with (4.84), printed pp. 94, 97-98, and 129, ISBN 978-0-691-13777-3
+% CF-BIBLIOGRAPHY-ENTRY-END: AIM-PLANAR-BEURLING-LP-BOUND
+
+% CF-BIBLIOGRAPHY-ENTRY: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES
+\subsection*{\texttt{\detokenize{AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES}}}
+Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Definition 4.0.9 and formulas (4.6), (4.8), (4.16)-(4.17), Theorem 4.0.10, the Lp extension discussion on printed pp. 96-97, and Theorem 4.5.3, printed pp. 93-98 and 129, ISBN 978-0-691-13777-3
+% CF-BIBLIOGRAPHY-ENTRY-END: AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES
+
+% CF-BIBLIOGRAPHY-ENTRY: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE
+\subsection*{\texttt{\detokenize{AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE}}}
+Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Definition 4.0.9 and formulas (4.6)-(4.8), printed p. 93 / PDF p. 112, ISBN 978-0-691-13777-3
+% CF-BIBLIOGRAPHY-ENTRY-END: AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE
+
+% CF-BIBLIOGRAPHY-ENTRY: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV
+\subsection*{\texttt{\detokenize{AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV}}}
+Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Theorem 4.3.8, printed p. 111; normalization and HLS estimate printed pp. 109-110
+% CF-BIBLIOGRAPHY-ENTRY-END: AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV
+
+% CF-BIBLIOGRAPHY-ENTRY: AIM-PLANAR-RIESZ-POTENTIAL-HLS
+\subsection*{\texttt{\detokenize{AIM-PLANAR-RIESZ-POTENTIAL-HLS}}}
+Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, displayed Hardy-Littlewood-Sobolev inequality on printed p. 110 / PDF p. 129, ISBN 978-0-691-13777-3
+% CF-BIBLIOGRAPHY-ENTRY-END: AIM-PLANAR-RIESZ-POTENTIAL-HLS
+
+% CF-BIBLIOGRAPHY-ENTRY: EVANS-COMPACT-SMOOTH-L1-DENSITY
+\subsection*{\texttt{\detokenize{EVANS-COMPACT-SMOOTH-L1-DENSITY}}}
+Lawrence C. Evans, Partial Differential Equations, second edition, Graduate Studies in Mathematics 19, American Mathematical Society, 2010, Appendix C.5, standard mollifier printed p. 713 and Theorem 7(i),(iv), printed pp. 714-716
+% CF-BIBLIOGRAPHY-ENTRY-END: EVANS-COMPACT-SMOOTH-L1-DENSITY
+
+% CF-BIBLIOGRAPHY-ENTRY: EVANS-COMPACT-SMOOTH-LP-DENSITY
+\subsection*{\texttt{\detokenize{EVANS-COMPACT-SMOOTH-LP-DENSITY}}}
+Lawrence C. Evans, Partial Differential Equations, 2nd ed., Graduate Studies in Mathematics 19, American Mathematical Society, 2010, Appendix C.5 standard mollifier and Theorem 7(i),(iv), printed pp. 713-716, ISBN 978-0-8218-4974-3
+% CF-BIBLIOGRAPHY-ENTRY-END: EVANS-COMPACT-SMOOTH-LP-DENSITY
+
+% CF-BIBLIOGRAPHY-ENTRY: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY
+\subsection*{\texttt{\detokenize{EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY}}}
+Lawrence C. Evans, Partial Differential Equations, second edition, Graduate Studies in Mathematics 19, American Mathematical Society, 2010, definition of C\_c\textasciicircum{}infinity(U), printed p. 256; definition of W\_0\textasciicircum{}\{k,p\}(U), printed p. 259; Section 5.3.1, Theorem 1 and proof, printed pp. 264-265; Appendix C.5, standard mollifier and Theorem 7(i),(iv), printed pp. 713-716; ISBN 978-0-8218-4974-3
+% CF-BIBLIOGRAPHY-ENTRY-END: EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY
+
+% CF-BIBLIOGRAPHY-ENTRY: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL
+\subsection*{\texttt{\detokenize{HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL}}}
+Lars Hormander, The Analysis of Linear Partial Differential Operators I: Distribution Theory and Fourier Analysis, first edition, Springer-Verlag, 1983, Definition 7.1.1, formulas (7.1.3) and (7.1.8), Definition 7.1.9, and Theorems 7.1.10-7.1.11, ISBN 3-540-12104-8 / 0-387-12104-8, DOI 10.1007/978-3-642-96750-4.
+% CF-BIBLIOGRAPHY-ENTRY-END: HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL
+
+% CF-BIBLIOGRAPHY-ENTRY: HORMANDER-QUADRATIC-STATIONARY-PHASE
+\subsection*{\texttt{\detokenize{HORMANDER-QUADRATIC-STATIONARY-PHASE}}}
+Lars Hörmander, The Analysis of Linear Partial Differential Operators I, first edition, Springer-Verlag, 1983, Lemma 7.7.3, equations (7.7.7)-(7.7.8), printed pp. 218-219
+% CF-BIBLIOGRAPHY-ENTRY-END: HORMANDER-QUADRATIC-STATIONARY-PHASE
+% CF-BIBLIOGRAPHY-END
+\end{document}

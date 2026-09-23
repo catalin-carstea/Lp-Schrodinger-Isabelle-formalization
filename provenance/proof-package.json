@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "package_version": 1,
+  "artifact_name": "inverse-schrodinger-lp-uniqueness-proof-v1",
+  "title": "Conditional uniqueness for the inverse Schrodinger problem with L^p potentials, p>1",
+  "result_label": "VERIFIED_RELATIVE_TO_LITERATURE",
+  "isabelle_release": "Isabelle2025-2",
+  "afp_release": "afp-2026-07-21",
+  "terminal_sessions": ["Paper_Inverse_Schrodinger_Lp_Proof_Stage_018"],
+  "checked_theorems": [
+    {
+      "formal_identifier": "slp_alessandrini_uniqueness_claim_v2",
+      "theory": "Inverse_Schrodinger_Lp_Alessandrini_Uniqueness_V2",
+      "description": "frozen conditional v002: universal integrable complex-bilinear Alessandrini orthogonality implies almost-everywhere equality for every real p>1"
+    }
+  ],
+  "excluded_claims": [
+    "The manuscript Dirichlet-to-Neumann theorem main-thm (preserved statement v001) is not established by this package.",
+    "Forward Dirichlet solvability, weak DN-map well-definedness and the DN-to-Alessandrini bridge are outside this checked claim."
+  ],
+  "scope_notes": [
+    "The checked proposition concerns two possibly complex-valued L^p potentials on a bounded smooth planar domain, with the exact weak-solution, integrability, bilinear-pairing and almost-everywhere conventions exposed in translation/.",
+    "The trusted literature boundary is exactly the ten interfaces in literature lock v10. Seven literature premises are explicit in the terminal theorem; its locale contributes three additional distinct premises, for ten in total. No manuscript or provisional result is trusted.",
+    "Statement lock v2 and all ten literature entries were reviewed and frozen under testing_waiver. Exact-byte human semantic ratification remains pending. Packaging and publication do not supply that approval.",
+    "The five translation files are byte-identical to the independently audited translation package v2. Its preserved README still says review-ready; the later audited manifest and PASS report in provenance/ record completion. The historical README is preserved to retain its audited hash."
+  ],
+  "translation_package_manifest": "papers/inverse-schrodinger-lp-uniqueness/translation-package.json",
+  "manuscript_binding": {
+    "mode": "external_semantic_review",
+    "hard_gate": false,
+    "last_compared_version": "official short v05; user-selected conditional statement v002",
+    "last_compared_sha256": "bea3c22283a7bfc8b2adb929bfc48e576c7bfb0a3f0ff6a823ce2bb191048430",
+    "informational_only": true,
+    "review_surface": "translation/TRANSLATION_A.tex, translation/TRANSLATION_A.pdf, translation/TRANSLATION_B.tex, and translation/TRANSLATION_B.pdf",
+    "policy": "The manuscript is not redistributed or a checksum-gated build input. Meaning-bearing changes require translation review and, if the formal proposition or trusted premise changes, a new checked proof release."
+  },
+  "provenance_files": [
+    {"source": "papers/inverse-schrodinger-lp-uniqueness/statement-lock.json", "destination": "provenance/statement-lock.json", "role": "statement_lock_snapshot"},
+    {"source": "papers/inverse-schrodinger-lp-uniqueness/literature-lock.json", "destination": "provenance/literature-lock.json", "role": "literature_lock_snapshot"},
+    {"source": "papers/inverse-schrodinger-lp-uniqueness/TRUSTED_BASE.md", "destination": "provenance/TRUSTED_BASE.md", "role": "trusted_base_ledger"},
+    {"source": "papers/inverse-schrodinger-lp-uniqueness/translation-package.json", "destination": "provenance/translation-package.json", "role": "translation_package_manifest"},
+    {"source": "papers/inverse-schrodinger-lp-uniqueness/reviews/translation-package/v002/INDEPENDENT_PACKAGE_AUDIT.md", "destination": "provenance/audits/INDEPENDENT_TRANSLATION_PACKAGE_AUDIT_v002.md", "role": "independent_translation_and_terminal_dependency_audit"},
+    {"source": "workflow-mode.json", "destination": "provenance/workflow-mode.json", "role": "semantic_approval_mode_snapshot"}
+  ]
+}

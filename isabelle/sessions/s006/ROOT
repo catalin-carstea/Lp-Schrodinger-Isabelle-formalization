@@ -1,0 +1,7 @@
+session Paper_ISLP_Evans_Compact_Smooth_L1_Density = "HOL-Analysis" +
+  options [document = false]
+  sessions
+    Smooth_Manifolds
+    Paper_ISLP_Hormander_Quadratic_Stationary_Phase
+  theories
+    Evans_Compact_Smooth_L1_Density_Interface

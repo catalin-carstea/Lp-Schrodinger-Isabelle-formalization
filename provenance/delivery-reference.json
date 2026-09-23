@@ -1,0 +1,34 @@
+{
+  "repository": "https://github.com/catalin-carstea/arxiv-2606.15977-formalization",
+  "commit": "7135f8e2e03987f8f5b12bee3df3a63d27c7ec93",
+  "copied_files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "a189de861b1648b12cef0165f571b95fcc9c7c62c567b4167affc2b09d391cb6"
+    },
+    {
+      "path": ".github/workflows/integrity.yml",
+      "sha256": "fa01e237d04fada4e5c592db2d79f6aa95c893eaa69c0b2ce7dcdd762d8558d8"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "ed03343d319347cf65d43b050623d8c6927720665c39498f5e8442ea4c62ad11"
+    },
+    {
+      "path": "check.py",
+      "sha256": "2b1eab6eb36c4d03a151349414cf6b5e92bef751906f4f7da370a1040b4d3764"
+    },
+    {
+      "path": "check.sh",
+      "sha256": "45733f00d18e909c7b5b4f704ae5a5c0841939b2b58ad36a492fc55fa75e8b69"
+    },
+    {
+      "path": "check.ps1",
+      "sha256": "bba6afe398b97ecb5189161bd34295845b058a64ece4fb1c52c46966f6bd4d83"
+    },
+    {
+      "path": "check.cmd",
+      "sha256": "ac3025f3bcd9a4c2165dccf78f9f41ccdf2e1e6c8944501f42c0237caddc5688"
+    }
+  ]
+}

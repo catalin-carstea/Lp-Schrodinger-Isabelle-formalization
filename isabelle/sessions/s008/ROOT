@@ -1,0 +1,5 @@
+session Paper_ISLP_Evans_Compact_Support_W1p_Zero_Density =
+  Paper_Inverse_Schrodinger_Lp_Proof_Stage_011 +
+  options [document = false]
+  theories
+    Evans_Compact_Support_W1p_Zero_Density_Interface

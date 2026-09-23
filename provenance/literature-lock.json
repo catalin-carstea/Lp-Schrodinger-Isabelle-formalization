@@ -1,0 +1,848 @@
+{
+    "schema_version":  1,
+    "status":  "frozen",
+    "lock_version":  10,
+    "previous_lock_sha256":  "6cdf294d14cb5a023d998635531ea07a35ff3e3c4e8fb453d9bcbe6923b14d9e",
+    "results":  [
+                    {
+                        "result_id":  "AIM-PLANAR-BEURLING-LP-BOUND",
+                        "source":  {
+                                       "citation":  "Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, formula (4.17), Theorem 4.0.10, and Theorem 4.5.3 with (4.84), printed pp. 94, 97-98, and 129, ISBN 978-0-691-13777-3",
+                                       "artifact":  {
+                                                        "path":  "literature/sources/Astala_Iwaniec_Martin_2009.pdf",
+                                                        "sha256":  "81d5f1ea65fca5cb93f6696c690e37b9178b4da51761379af7e52cdc2a132ff5"
+                                                    }
+                                   },
+                        "translation_spec":  {
+                                                 "path":  "literature/aim-planar-beurling-lp/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "9ab88dc7eddcc115a5d0a3cf3bcbb4ab881497f0f16475229127390cf5cac73d"
+                                             },
+                        "reviews":  {
+                                        "independent_translation":  {
+                                                                        "path":  "literature/aim-planar-beurling-lp/reviews/v001/independent-source-translation.md",
+                                                                        "sha256":  "dce9957d584b534e5317295f06b116e9fc67beccc6e1593c68ca096bcc1eb718"
+                                                                    },
+                                        "adversarial_hypothesis_audit":  {
+                                                                             "path":  "literature/aim-planar-beurling-lp/reviews/v001/adversarial-audit.md",
+                                                                             "sha256":  "bad0eff1b56bf3eeee4179dd49be289d2e8ed7d23b07fb4ea300aa3f426a8196"
+                                                                         },
+                                        "isabelle_semantics_audit":  {
+                                                                         "path":  "literature/aim-planar-beurling-lp/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                                         "sha256":  "1fdb8d27f6ae7fd4bddc2600f40e12ad148b1e63654af6bcb256bfda77b97cc3"
+                                                                     }
+                                    },
+                        "approval":  {
+                                         "mode":  "testing_waiver",
+                                         "approved_by":  "temporary workflow-testing waiver",
+                                         "approved_at_utc":  "2026-08-11T23:25:19.6691298Z",
+                                         "record":  "Exact AIM-PLANAR-BEURLING-LP-BOUND v001 candidate accepted unchanged after exact-source verification, native and fresh pinned-Linux Isabelle validation, three mutually independent fixed-hash strongest-tier reviews, and primary reconciliation; frozen under the active user-authorized testing waiver with exact-byte human semantic ratification pending.",
+                                         "human_ratification":  "pending",
+                                         "waiver":  {
+                                                        "authorized_by":  "user",
+                                                        "authorized_at":  "2026-08-02",
+                                                        "authorization_record":  "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+                                                        "restore_to":  "human_required"
+                                                    }
+                                     },
+                        "change_control":  {
+                                               "replaces_previous":  false,
+                                               "previous_entry_sha256":  null,
+                                               "summary":  null
+                                           },
+                        "locked_files":  [
+                                             {
+                                                 "path":  "literature/aim-planar-beurling-lp/AIM_Planar_Beurling_Lp_Interface.thy",
+                                                 "sha256":  "24776650845c4fa1648a0329b8de31f5d8e73a975a5af48e1204b9295f4389fc"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-beurling-lp/reviews/v001/adversarial-audit.md",
+                                                 "sha256":  "bad0eff1b56bf3eeee4179dd49be289d2e8ed7d23b07fb4ea300aa3f426a8196"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-beurling-lp/reviews/v001/independent-source-translation.md",
+                                                 "sha256":  "dce9957d584b534e5317295f06b116e9fc67beccc6e1593c68ca096bcc1eb718"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-beurling-lp/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                 "sha256":  "1fdb8d27f6ae7fd4bddc2600f40e12ad148b1e63654af6bcb256bfda77b97cc3"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-beurling-lp/reviews/v001/primary-precheck.md",
+                                                 "sha256":  "172e73db0def4cb0f6adbc6e10baae580c598f4fa8d2b31f60559b56cf1de5d0"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-beurling-lp/reviews/v001/reconciliation.md",
+                                                 "sha256":  "561cd53d3cfaf6e58053d86e5338ad40cc2a229db9a742d6a66aaf08e68102f9"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-beurling-lp/ROOT",
+                                                 "sha256":  "f40e2b86eec724c89222436d694a614e66c540e3cd1567d83be0d1f2d18157b1"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-beurling-lp/source/SOURCE_METADATA.md",
+                                                 "sha256":  "5103f0f60b3b553d175a99112e90bcdac8344a16ba39c5585505096cc1fbe0a7"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-beurling-lp/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "9ab88dc7eddcc115a5d0a3cf3bcbb4ab881497f0f16475229127390cf5cac73d"
+                                             }
+                                         ]
+                    },
+                    {
+                        "result_id":  "AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES",
+                        "source":  {
+                                       "citation":  "Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Definition 4.0.9 and formulas (4.6), (4.8), (4.16)-(4.17), Theorem 4.0.10, the Lp extension discussion on printed pp. 96-97, and Theorem 4.5.3, printed pp. 93-98 and 129, ISBN 978-0-691-13777-3",
+                                       "artifact":  {
+                                                        "path":  "literature/sources/Astala_Iwaniec_Martin_2009.pdf",
+                                                        "sha256":  "81d5f1ea65fca5cb93f6696c690e37b9178b4da51761379af7e52cdc2a132ff5"
+                                                    }
+                                   },
+                        "translation_spec":  {
+                                                 "path":  "literature/aim-planar-cauchy-beurling-derivatives/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "2f4b65e0139cb4f5a6bde71ad6540575f2e00d8570aac8a51f04a0de1c042f31"
+                                             },
+                        "reviews":  {
+                                        "independent_translation":  {
+                                                                        "path":  "literature/aim-planar-cauchy-beurling-derivatives/reviews/v001/independent-source-translation.md",
+                                                                        "sha256":  "61267f3694cc0676889c483bfa5731645ea005aa2217050134e732763ae9329d"
+                                                                    },
+                                        "adversarial_hypothesis_audit":  {
+                                                                             "path":  "literature/aim-planar-cauchy-beurling-derivatives/reviews/v001/adversarial-audit.md",
+                                                                             "sha256":  "65c9e98166663986e0f7b5620b2d58006cc0061ef536f7461034790e88652a63"
+                                                                         },
+                                        "isabelle_semantics_audit":  {
+                                                                         "path":  "literature/aim-planar-cauchy-beurling-derivatives/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                                         "sha256":  "d5ba5794d0480e0473aa9154e94ff5f29aab321390dd727e63579e58342e78b6"
+                                                                     }
+                                    },
+                        "approval":  {
+                                         "mode":  "testing_waiver",
+                                         "approved_by":  "temporary workflow-testing waiver",
+                                         "approved_at_utc":  "2026-08-12T00:08:40.9804131Z",
+                                         "record":  "Exact AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES v001 repaired candidate accepted unchanged after exact-source verification, native and fresh pinned-Linux Isabelle validation, three mutually independent fixed-hash strongest-tier reviews, and primary reconciliation of non-material support, representative, truncation-boundary, and explicit-premise observations; frozen under the active user-authorized testing waiver with exact-byte human semantic ratification pending.",
+                                         "human_ratification":  "pending",
+                                         "waiver":  {
+                                                        "authorized_by":  "user",
+                                                        "authorized_at":  "2026-08-02",
+                                                        "authorization_record":  "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+                                                        "restore_to":  "human_required"
+                                                    }
+                                     },
+                        "change_control":  {
+                                               "replaces_previous":  false,
+                                               "previous_entry_sha256":  null,
+                                               "summary":  null
+                                           },
+                        "locked_files":  [
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-beurling-derivatives/AIM_Planar_Cauchy_Beurling_Derivatives_Interface.thy",
+                                                 "sha256":  "3dda21bb44a9e80ebfa7043e453296ac034f331803c7bd2f0303502de27fecf8"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-beurling-derivatives/reviews/v001/adversarial-audit.md",
+                                                 "sha256":  "65c9e98166663986e0f7b5620b2d58006cc0061ef536f7461034790e88652a63"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-beurling-derivatives/reviews/v001/independent-source-translation.md",
+                                                 "sha256":  "61267f3694cc0676889c483bfa5731645ea005aa2217050134e732763ae9329d"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-beurling-derivatives/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                 "sha256":  "d5ba5794d0480e0473aa9154e94ff5f29aab321390dd727e63579e58342e78b6"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-beurling-derivatives/reviews/v001/primary-precheck.md",
+                                                 "sha256":  "03813e1eb94e7c8fe9203930513f03ace1b13db9d0a287350ddf863835a77f55"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-beurling-derivatives/reviews/v001/reconciliation.md",
+                                                 "sha256":  "40c7e8928a4c2c324ec25cf90602f11ca7f7e17b7149cf64f3c53a0ea441f05c"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-beurling-derivatives/ROOT",
+                                                 "sha256":  "46abc20b08d448f55b65a8a62500f86c9b00cedac21fa043c9c9570ebe82304f"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-beurling-derivatives/source/SOURCE_METADATA.md",
+                                                 "sha256":  "d29bcc50769acdd37378531ffeb00e04dc3b558b3bfa0a4d3959700d9eacec9f"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-beurling-derivatives/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "2f4b65e0139cb4f5a6bde71ad6540575f2e00d8570aac8a51f04a0de1c042f31"
+                                             }
+                                         ]
+                    },
+                    {
+                        "result_id":  "AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE",
+                        "source":  {
+                                       "citation":  "Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Definition 4.0.9 and formulas (4.6)-(4.8), printed p. 93 / PDF p. 112, ISBN 978-0-691-13777-3",
+                                       "artifact":  {
+                                                        "path":  "literature/sources/Astala_Iwaniec_Martin_2009.pdf",
+                                                        "sha256":  "81d5f1ea65fca5cb93f6696c690e37b9178b4da51761379af7e52cdc2a132ff5"
+                                                    }
+                                   },
+                        "translation_spec":  {
+                                                 "path":  "literature/aim-planar-cauchy-test-left-inverse/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "2b0ed7db5c7978bfe2fb19ed5e148375b47532154ff6acba7006d7ae1655126b"
+                                             },
+                        "reviews":  {
+                                        "independent_translation":  {
+                                                                        "path":  "literature/aim-planar-cauchy-test-left-inverse/reviews/v001/independent-source-translation.md",
+                                                                        "sha256":  "373344ed81fc8a4eae60f690d4cd4033c4aa074680df68611ace8f8cd531de91"
+                                                                    },
+                                        "adversarial_hypothesis_audit":  {
+                                                                             "path":  "literature/aim-planar-cauchy-test-left-inverse/reviews/v001/adversarial-audit.md",
+                                                                             "sha256":  "5d9dbc3a6391bb9ad3cafa9c24608f404f582dd046415df05b919754c09b1411"
+                                                                         },
+                                        "isabelle_semantics_audit":  {
+                                                                         "path":  "literature/aim-planar-cauchy-test-left-inverse/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                                         "sha256":  "23201074916355e7b5e056d3eae6603fa96b16b8f4e7790ba47c59207cb789cf"
+                                                                     }
+                                    },
+                        "approval":  {
+                                         "mode":  "testing_waiver",
+                                         "approved_by":  "temporary workflow-testing waiver",
+                                         "approved_at_utc":  "2026-08-12T17:18:51.7472985Z",
+                                         "record":  "Exact AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE v001 candidate accepted unchanged after exact-source visual verification, native and fresh pinned-Linux Isabelle validation, strict lint, three mutually independent fixed-hash PASS reviews, and primary reconciliation; frozen under the active user-authorized testing waiver with exact-byte human semantic ratification pending.",
+                                         "human_ratification":  "pending",
+                                         "waiver":  {
+                                                        "authorized_by":  "user",
+                                                        "authorized_at":  "2026-08-02",
+                                                        "authorization_record":  "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+                                                        "restore_to":  "human_required"
+                                                    }
+                                     },
+                        "change_control":  {
+                                               "replaces_previous":  false,
+                                               "previous_entry_sha256":  null,
+                                               "summary":  null
+                                           },
+                        "locked_files":  [
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-test-left-inverse/AIM_Planar_Cauchy_Test_Left_Inverse_Interface.thy",
+                                                 "sha256":  "77177ff57912830e1cfbd877e09f0a3aba5d6fb52a76fe040366fa63ebb131f7"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-test-left-inverse/reviews/v001/adversarial-audit.md",
+                                                 "sha256":  "5d9dbc3a6391bb9ad3cafa9c24608f404f582dd046415df05b919754c09b1411"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-test-left-inverse/reviews/v001/independent-source-translation.md",
+                                                 "sha256":  "373344ed81fc8a4eae60f690d4cd4033c4aa074680df68611ace8f8cd531de91"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-test-left-inverse/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                 "sha256":  "23201074916355e7b5e056d3eae6603fa96b16b8f4e7790ba47c59207cb789cf"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-test-left-inverse/reviews/v001/primary-precheck.md",
+                                                 "sha256":  "a08cb18dccb56823faa38c10156be4ddda653ce5b8aeb536f6e959012a96b28d"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-test-left-inverse/reviews/v001/reconciliation.md",
+                                                 "sha256":  "9d5ba77f0eef1fd8b86753eb6fe06304fd0821787f6f70cd174a4cc35b69850d"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-test-left-inverse/ROOT",
+                                                 "sha256":  "c031f57d1363c78f4177da312665902c33f5c5207222e700f68cbc0f1aa2b1ae"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-test-left-inverse/source/SOURCE_METADATA.md",
+                                                 "sha256":  "4154f32a37533416fcfb62ad67d9b96d6c983a58c14e33609cfd30cd768ff451"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-cauchy-test-left-inverse/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "2b0ed7db5c7978bfe2fb19ed5e148375b47532154ff6acba7006d7ae1655126b"
+                                             }
+                                         ]
+                    },
+                    {
+                        "result_id":  "AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV",
+                        "source":  {
+                                       "citation":  "Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Theorem 4.3.8, printed p. 111; normalization and HLS estimate printed pp. 109-110",
+                                       "artifact":  {
+                                                        "path":  "literature/sources/Astala_Iwaniec_Martin_2009.pdf",
+                                                        "sha256":  "81d5f1ea65fca5cb93f6696c690e37b9178b4da51761379af7e52cdc2a132ff5"
+                                                    }
+                                   },
+                        "translation_spec":  {
+                                                 "path":  "literature/aim-planar-hardy-littlewood-sobolev/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "eeb3768403e35f9e2fe91aff4b143baeb649f063256dc02525068b0287270fb7"
+                                             },
+                        "reviews":  {
+                                        "independent_translation":  {
+                                                                        "path":  "literature/aim-planar-hardy-littlewood-sobolev/reviews/v001/independent-source-translation.md",
+                                                                        "sha256":  "032c334575dee47cc94c0657689050f7a1ba9cef97654622ea8085388b3bf725"
+                                                                    },
+                                        "adversarial_hypothesis_audit":  {
+                                                                             "path":  "literature/aim-planar-hardy-littlewood-sobolev/reviews/v001/adversarial-audit.md",
+                                                                             "sha256":  "09bfd856ed27a64a192019853156ba82936cf30a6fb33978975f9200d2106c82"
+                                                                         },
+                                        "isabelle_semantics_audit":  {
+                                                                         "path":  "literature/aim-planar-hardy-littlewood-sobolev/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                                         "sha256":  "3e46db6dcb16c8c6d44487bc8ce84dd03e61a3178f8ac51a99521296689eb7aa"
+                                                                     }
+                                    },
+                        "approval":  {
+                                         "mode":  "testing_waiver",
+                                         "approved_by":  "temporary workflow-testing waiver",
+                                         "approved_at_utc":  "2026-08-11T21:45:08.6990222Z",
+                                         "record":  "Exact AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV v001 candidate accepted unchanged after exact-source verification, native and fresh pinned-Linux Isabelle validation, three mutually independent fixed-hash strongest-tier reviews, and primary reconciliation of non-material consumer-scope cautions; frozen under the active user-authorized testing waiver with exact-byte human semantic ratification pending.",
+                                         "human_ratification":  "pending",
+                                         "waiver":  {
+                                                        "authorized_by":  "user",
+                                                        "authorized_at":  "2026-08-02",
+                                                        "authorization_record":  "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+                                                        "restore_to":  "human_required"
+                                                    }
+                                     },
+                        "change_control":  {
+                                               "replaces_previous":  false,
+                                               "previous_entry_sha256":  null,
+                                               "summary":  null
+                                           },
+                        "locked_files":  [
+                                             {
+                                                 "path":  "literature/aim-planar-hardy-littlewood-sobolev/AIM_Planar_Hardy_Littlewood_Sobolev_Interface.thy",
+                                                 "sha256":  "17db271fa5b9d2e6485e85809024bf72721ab245b72be06e80aae3409f70e9e0"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-hardy-littlewood-sobolev/reviews/v001/adversarial-audit.md",
+                                                 "sha256":  "09bfd856ed27a64a192019853156ba82936cf30a6fb33978975f9200d2106c82"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-hardy-littlewood-sobolev/reviews/v001/independent-source-translation.md",
+                                                 "sha256":  "032c334575dee47cc94c0657689050f7a1ba9cef97654622ea8085388b3bf725"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-hardy-littlewood-sobolev/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                 "sha256":  "3e46db6dcb16c8c6d44487bc8ce84dd03e61a3178f8ac51a99521296689eb7aa"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-hardy-littlewood-sobolev/reviews/v001/primary-precheck.md",
+                                                 "sha256":  "9b98bd72592fc96f40b9f44aed5421c7d5339849d20a6226a20a1e371df45111"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-hardy-littlewood-sobolev/reviews/v001/reconciliation.md",
+                                                 "sha256":  "040144132a35c258befe796cc241a69aa19080489062bc9b5af32a6c7272f6a4"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-hardy-littlewood-sobolev/ROOT",
+                                                 "sha256":  "fec3010deacd7e0e43b1a3ebe30cf149de314a4b190f78a4e14f09c80e592a5c"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-hardy-littlewood-sobolev/source/SOURCE_METADATA.md",
+                                                 "sha256":  "c09928c18a69606ae8d218ec7235231065cfdb453a9be94328041412ea568752"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-hardy-littlewood-sobolev/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "eeb3768403e35f9e2fe91aff4b143baeb649f063256dc02525068b0287270fb7"
+                                             }
+                                         ]
+                    },
+                    {
+                        "result_id":  "AIM-PLANAR-RIESZ-POTENTIAL-HLS",
+                        "source":  {
+                                       "citation":  "Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, displayed Hardy-Littlewood-Sobolev inequality on printed p. 110 / PDF p. 129, ISBN 978-0-691-13777-3",
+                                       "artifact":  {
+                                                        "path":  "literature/sources/Astala_Iwaniec_Martin_2009.pdf",
+                                                        "sha256":  "81d5f1ea65fca5cb93f6696c690e37b9178b4da51761379af7e52cdc2a132ff5"
+                                                    }
+                                   },
+                        "translation_spec":  {
+                                                 "path":  "literature/aim-planar-riesz-potential-hls/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "0a3ca09783cf21a210b8515ae4c7c63de98b5b9b89ed446224bc3d4bec546ae5"
+                                             },
+                        "reviews":  {
+                                        "independent_translation":  {
+                                                                        "path":  "literature/aim-planar-riesz-potential-hls/reviews/v002/independent-source-translation.md",
+                                                                        "sha256":  "4e9e063574c3abb5ebfe8afd229caf9161a138cca8f694213adbadab4c15c3ec"
+                                                                    },
+                                        "adversarial_hypothesis_audit":  {
+                                                                             "path":  "literature/aim-planar-riesz-potential-hls/reviews/v002/adversarial-audit.md",
+                                                                             "sha256":  "484ed10371800843cebf8c2d8a793421d4435440b8914c09f22f5c1e533f9c77"
+                                                                         },
+                                        "isabelle_semantics_audit":  {
+                                                                         "path":  "literature/aim-planar-riesz-potential-hls/reviews/v002/isabelle-semantics-trust-audit.md",
+                                                                         "sha256":  "d4b48a01ed0d89a922ccc0c193a45bf77f6b5e8963eddb489f4e9156d7590479"
+                                                                     }
+                                    },
+                        "approval":  {
+                                         "mode":  "testing_waiver",
+                                         "approved_by":  "temporary workflow-testing waiver",
+                                         "approved_at_utc":  "2026-08-12T02:03:52.021062Z",
+                                         "record":  "Exact repaired AIM-PLANAR-RIESZ-POTENTIAL-HLS v002 candidate accepted unchanged after exact-source verification, native and fresh pinned-Linux Isabelle validation, three mutually independent fixed-hash strongest-tier v002 reviews, and primary reconciliation of the v001 totalized-integral defect and its explicit almost-everywhere ordinary-integrability repair; frozen under the active user-authorized testing waiver with exact-byte human semantic ratification pending.",
+                                         "human_ratification":  "pending",
+                                         "waiver":  {
+                                                        "authorized_by":  "user",
+                                                        "authorized_at":  "2026-08-02",
+                                                        "authorization_record":  "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+                                                        "restore_to":  "human_required"
+                                                    }
+                                     },
+                        "change_control":  {
+                                               "replaces_previous":  false,
+                                               "previous_entry_sha256":  null,
+                                               "summary":  null
+                                           },
+                        "locked_files":  [
+                                             {
+                                                 "path":  "literature/aim-planar-riesz-potential-hls/AIM_Planar_Riesz_Potential_HLS_Interface.thy",
+                                                 "sha256":  "6c9c1c2a543e6db5248d6d58db36943e7bb49cc8164ee5384a7a51266257f7bc"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-riesz-potential-hls/reviews/v002/adversarial-audit.md",
+                                                 "sha256":  "484ed10371800843cebf8c2d8a793421d4435440b8914c09f22f5c1e533f9c77"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-riesz-potential-hls/reviews/v002/independent-source-translation.md",
+                                                 "sha256":  "4e9e063574c3abb5ebfe8afd229caf9161a138cca8f694213adbadab4c15c3ec"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-riesz-potential-hls/reviews/v002/isabelle-semantics-trust-audit.md",
+                                                 "sha256":  "d4b48a01ed0d89a922ccc0c193a45bf77f6b5e8963eddb489f4e9156d7590479"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-riesz-potential-hls/reviews/v002/primary-precheck.md",
+                                                 "sha256":  "8ad09d22e824dabaaf5fb4283c1d279995fabc25aed5a945329b01988e971827"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-riesz-potential-hls/reviews/v002/reconciliation.md",
+                                                 "sha256":  "1d35c40d8c338cc635ed93fd2558f3e83d3d6484ae243621f2b8561bac69b28d"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-riesz-potential-hls/ROOT",
+                                                 "sha256":  "84f2c7a1fcc591975fd082bfb5ecf178e82e578614614be82773c5c8fe6966e1"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-riesz-potential-hls/source/SOURCE_METADATA.md",
+                                                 "sha256":  "a1f99c559130308bd6a12895480dca2ec23683b95187d801dadb97e156a2ae93"
+                                             },
+                                             {
+                                                 "path":  "literature/aim-planar-riesz-potential-hls/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "0a3ca09783cf21a210b8515ae4c7c63de98b5b9b89ed446224bc3d4bec546ae5"
+                                             }
+                                         ]
+                    },
+                    {
+                        "result_id":  "EVANS-COMPACT-SMOOTH-L1-DENSITY",
+                        "source":  {
+                                       "citation":  "Lawrence C. Evans, Partial Differential Equations, second edition, Graduate Studies in Mathematics 19, American Mathematical Society, 2010, Appendix C.5, standard mollifier printed p. 713 and Theorem 7(i),(iv), printed pp. 714-716",
+                                       "artifact":  {
+                                                        "path":  "literature/sources/Evans_Partial_Differential_Equations_2ed_2010.pdf",
+                                                        "sha256":  "6bcaf78ff6e3c917bcaf335f6dff9d1a0c830941e90f89ffb4348ff3a34f1e7f"
+                                                    }
+                                   },
+                        "translation_spec":  {
+                                                 "path":  "literature/evans-compact-smooth-l1-density/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "219802d46b700e47740c0bcd666389edc5a98adb6b3f869b56372915be282ca1"
+                                             },
+                        "reviews":  {
+                                        "independent_translation":  {
+                                                                        "path":  "literature/evans-compact-smooth-l1-density/reviews/v001/independent-source-translation.md",
+                                                                        "sha256":  "1cabe9bac93a204daf8aedc10a6414be0649adc646d0b45c6ec407c727403722"
+                                                                    },
+                                        "adversarial_hypothesis_audit":  {
+                                                                             "path":  "literature/evans-compact-smooth-l1-density/reviews/v001/adversarial-audit.md",
+                                                                             "sha256":  "4a27a1c2f7895e9b5b9378bed031a49f80dad7904576509c96ea1d2f91ac3117"
+                                                                         },
+                                        "isabelle_semantics_audit":  {
+                                                                         "path":  "literature/evans-compact-smooth-l1-density/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                                         "sha256":  "b2224811af69ae63d35b664f238d54e5bf5e69af55240120b119139c1c1fb44f"
+                                                                     }
+                                    },
+                        "approval":  {
+                                         "mode":  "testing_waiver",
+                                         "approved_by":  "temporary workflow-testing waiver",
+                                         "approved_at_utc":  "2026-08-10T08:01:07.2406971Z",
+                                         "record":  "Exact EVANS-COMPACT-SMOOTH-L1-DENSITY v001 candidate accepted unchanged after exact-source verification, native and classified reproducible Isabelle validation, three mutually independent fixed-hash strongest-tier reviews, and primary reconciliation of one non-material epsilon-allocation clarification; frozen under the active user-authorized testing waiver with exact-byte human semantic ratification pending.",
+                                         "human_ratification":  "pending",
+                                         "waiver":  {
+                                                        "authorized_by":  "user",
+                                                        "authorized_at":  "2026-08-02",
+                                                        "authorization_record":  "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+                                                        "restore_to":  "human_required"
+                                                    }
+                                     },
+                        "change_control":  {
+                                               "replaces_previous":  false,
+                                               "previous_entry_sha256":  null,
+                                               "summary":  null
+                                           },
+                        "locked_files":  [
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-l1-density/Evans_Compact_Smooth_L1_Density_Interface.thy",
+                                                 "sha256":  "4a1929023baa428a58d1cc8f1c69edb0a5d0246891354b4298d2fb0442edc7ad"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-l1-density/reviews/v001/adversarial-audit.md",
+                                                 "sha256":  "4a27a1c2f7895e9b5b9378bed031a49f80dad7904576509c96ea1d2f91ac3117"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-l1-density/reviews/v001/independent-source-translation.md",
+                                                 "sha256":  "1cabe9bac93a204daf8aedc10a6414be0649adc646d0b45c6ec407c727403722"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-l1-density/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                 "sha256":  "b2224811af69ae63d35b664f238d54e5bf5e69af55240120b119139c1c1fb44f"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-l1-density/reviews/v001/primary-precheck.md",
+                                                 "sha256":  "d324eba685e32827981dd35e93c09b0bae1440c76e175c481de0de7b5ae54ea8"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-l1-density/reviews/v001/reconciliation.md",
+                                                 "sha256":  "2f7bf3a9120bff889004c0f73f4f6e2deef83526e493be61f27eb7a10b951fd1"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-l1-density/ROOT",
+                                                 "sha256":  "b39050cf21570f140b3f82ab8fece1e8fb365c58672c0f456560da746eb4da71"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-l1-density/source/SOURCE_METADATA.md",
+                                                 "sha256":  "b71dfbbe94f7deedba659a8e5966ee673e4d9a122bb2912d4a617a75998ede34"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-l1-density/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "219802d46b700e47740c0bcd666389edc5a98adb6b3f869b56372915be282ca1"
+                                             }
+                                         ]
+                    },
+                    {
+                        "result_id":  "EVANS-COMPACT-SMOOTH-LP-DENSITY",
+                        "source":  {
+                                       "citation":  "Lawrence C. Evans, Partial Differential Equations, 2nd ed., Graduate Studies in Mathematics 19, American Mathematical Society, 2010, Appendix C.5 standard mollifier and Theorem 7(i),(iv), printed pp. 713-716, ISBN 978-0-8218-4974-3",
+                                       "artifact":  {
+                                                        "path":  "literature/sources/Evans_Partial_Differential_Equations_2ed_2010.pdf",
+                                                        "sha256":  "6bcaf78ff6e3c917bcaf335f6dff9d1a0c830941e90f89ffb4348ff3a34f1e7f"
+                                                    }
+                                   },
+                        "translation_spec":  {
+                                                 "path":  "literature/evans-compact-smooth-lp-density/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "d289b931c4a1e21a140be2fddd38fb21b7756953e001544e692cbcc510e826c5"
+                                             },
+                        "reviews":  {
+                                        "independent_translation":  {
+                                                                        "path":  "literature/evans-compact-smooth-lp-density/reviews/v001/independent-source-translation.md",
+                                                                        "sha256":  "823fd2f9c0ccf1e642f0647a46e79b7ace965d532ad1a1771c67f399d33acefc"
+                                                                    },
+                                        "adversarial_hypothesis_audit":  {
+                                                                             "path":  "literature/evans-compact-smooth-lp-density/reviews/v001/adversarial-audit.md",
+                                                                             "sha256":  "3e1bb6cc1bb97e629508de7192caede0cd024da509d62f33a7b8826ce1e687be"
+                                                                         },
+                                        "isabelle_semantics_audit":  {
+                                                                         "path":  "literature/evans-compact-smooth-lp-density/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                                         "sha256":  "ae3b942ebdfc6b4c1150ca6a3b11b5391abfc5e6a343c1ec7caaddfade5d9338"
+                                                                     }
+                                    },
+                        "approval":  {
+                                         "mode":  "testing_waiver",
+                                         "approved_by":  "temporary workflow-testing waiver",
+                                         "approved_at_utc":  "2026-09-05T00:35:31.2984201Z",
+                                         "record":  "Exact EVANS-COMPACT-SMOOTH-LP-DENSITY v001 candidate accepted unchanged after direct Evans source-page verification, exact native and admitted one-thread Docker Isabelle validation, strict mechanical lint, three mutually independent fixed-hash strongest-tier reviews, and primary reconciliation of the nonmaterial error-integrability and downstream support-localization obligations; frozen under the active user-authorized testing waiver with exact-byte human semantic ratification pending.",
+                                         "human_ratification":  "pending",
+                                         "waiver":  {
+                                                        "authorized_by":  "user",
+                                                        "authorized_at":  "2026-08-02",
+                                                        "authorization_record":  "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+                                                        "restore_to":  "human_required"
+                                                    }
+                                     },
+                        "change_control":  {
+                                               "replaces_previous":  false,
+                                               "previous_entry_sha256":  null,
+                                               "summary":  null
+                                           },
+                        "locked_files":  [
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-lp-density/Evans_Compact_Smooth_Lp_Density_Interface.thy",
+                                                 "sha256":  "fb33963cae82d7d9f245823e1d6a3234bf355f3606d61278e559e3656ad14382"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-lp-density/reviews/v001/adversarial-audit.md",
+                                                 "sha256":  "3e1bb6cc1bb97e629508de7192caede0cd024da509d62f33a7b8826ce1e687be"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-lp-density/reviews/v001/independent-source-translation.md",
+                                                 "sha256":  "823fd2f9c0ccf1e642f0647a46e79b7ace965d532ad1a1771c67f399d33acefc"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-lp-density/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                 "sha256":  "ae3b942ebdfc6b4c1150ca6a3b11b5391abfc5e6a343c1ec7caaddfade5d9338"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-lp-density/reviews/v001/primary-precheck.md",
+                                                 "sha256":  "0821f7913b9717204d9ccdd56b40fdc12b8908728db9eb861c2f2a8a3b2bf63c"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-lp-density/reviews/v001/reconciliation.md",
+                                                 "sha256":  "e37cbe635df71fd0eeb2cf67ddc0edde206e25b5249506ba60472befb48a7344"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-lp-density/ROOT",
+                                                 "sha256":  "7ef5d0a3abd9d2ab95d4b85758b108308edce3d7e8efc1e6aebe0698effd575c"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-lp-density/source/SOURCE_METADATA.md",
+                                                 "sha256":  "852a65c20f1c3bd8de39e26b557f6a5df302dcaa0219534687e39f0d7f6047da"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-smooth-lp-density/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "d289b931c4a1e21a140be2fddd38fb21b7756953e001544e692cbcc510e826c5"
+                                             }
+                                         ]
+                    },
+                    {
+                        "result_id":  "EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY",
+                        "source":  {
+                                       "citation":  "Lawrence C. Evans, Partial Differential Equations, second edition, Graduate Studies in Mathematics 19, American Mathematical Society, 2010, definition of C_c^infinity(U), printed p. 256; definition of W_0^{k,p}(U), printed p. 259; Section 5.3.1, Theorem 1 and proof, printed pp. 264-265; Appendix C.5, standard mollifier and Theorem 7(i),(iv), printed pp. 713-716; ISBN 978-0-8218-4974-3",
+                                       "artifact":  {
+                                                        "path":  "literature/sources/Evans_Partial_Differential_Equations_2ed_2010.pdf",
+                                                        "sha256":  "6bcaf78ff6e3c917bcaf335f6dff9d1a0c830941e90f89ffb4348ff3a34f1e7f"
+                                                    }
+                                   },
+                        "translation_spec":  {
+                                                 "path":  "literature/evans-compact-support-w1p-zero-density/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "da7eae4be8fbf266e592ab1afebb03ea14b8f6b80720d8d8a1256229877afdcc"
+                                             },
+                        "reviews":  {
+                                        "independent_translation":  {
+                                                                        "path":  "literature/evans-compact-support-w1p-zero-density/reviews/v001/independent-source-translation.md",
+                                                                        "sha256":  "e2f66c4f9fc65f8f236db923e8bda3fb69a33f33bc7f844a3f9aa9c00f427454"
+                                                                    },
+                                        "adversarial_hypothesis_audit":  {
+                                                                             "path":  "literature/evans-compact-support-w1p-zero-density/reviews/v001/adversarial-audit.md",
+                                                                             "sha256":  "641575a809c9f4dc880d7211f62a19f217782105a5d9f8faf9f7f2cd6354b56a"
+                                                                         },
+                                        "isabelle_semantics_audit":  {
+                                                                         "path":  "literature/evans-compact-support-w1p-zero-density/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                                         "sha256":  "b1b0a0663c1e551a1de9a5a498261cd4af05f9a43b42f07461b22f702c216e9d"
+                                                                     }
+                                    },
+                        "approval":  {
+                                         "mode":  "testing_waiver",
+                                         "approved_by":  "temporary workflow-testing waiver",
+                                         "approved_at_utc":  "2026-09-01T08:42:24.4575338Z",
+                                         "record":  "Exact EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY v001 candidate accepted unchanged after exact-source verification, native and ordinary one-thread Docker candidate validation, three mutually independent fixed-hash strongest-tier reviews, and primary reconciliation of non-material quantitative support-margin, fixed-container local-to-global, and degenerate-case clarifications; frozen under the active user-authorized testing waiver with exact-byte human semantic ratification pending.",
+                                         "human_ratification":  "pending",
+                                         "waiver":  {
+                                                        "authorized_by":  "user",
+                                                        "authorized_at":  "2026-08-02",
+                                                        "authorization_record":  "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+                                                        "restore_to":  "human_required"
+                                                    }
+                                     },
+                        "change_control":  {
+                                               "replaces_previous":  false,
+                                               "previous_entry_sha256":  null,
+                                               "summary":  null
+                                           },
+                        "locked_files":  [
+                                             {
+                                                 "path":  "literature/evans-compact-support-w1p-zero-density/Evans_Compact_Support_W1p_Zero_Density_Interface.thy",
+                                                 "sha256":  "471af44602b6d38cc766742e2800a275e7e6968558506c6b6b8750990d3d4d0f"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-support-w1p-zero-density/reviews/v001/adversarial-audit.md",
+                                                 "sha256":  "641575a809c9f4dc880d7211f62a19f217782105a5d9f8faf9f7f2cd6354b56a"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-support-w1p-zero-density/reviews/v001/independent-source-translation.md",
+                                                 "sha256":  "e2f66c4f9fc65f8f236db923e8bda3fb69a33f33bc7f844a3f9aa9c00f427454"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-support-w1p-zero-density/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                 "sha256":  "b1b0a0663c1e551a1de9a5a498261cd4af05f9a43b42f07461b22f702c216e9d"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-support-w1p-zero-density/reviews/v001/primary-precheck.md",
+                                                 "sha256":  "55edb8aadffc985664f1aed74961fb6de4baa8baf530076ed818aabac3d20423"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-support-w1p-zero-density/reviews/v001/reconciliation.md",
+                                                 "sha256":  "0e038972b06e81d6e765aa4ab8271919d040151f19724c0314b6bd1f770a9478"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-support-w1p-zero-density/ROOT",
+                                                 "sha256":  "bb68f9b1ae223e7e32afb06c7e406dd321d9d30fbbe60d300d59d2f8d48b431f"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-support-w1p-zero-density/source/SOURCE_METADATA.md",
+                                                 "sha256":  "a30d17dd9a40698a6ed23df4ade1fbf3a2f36b921e0f83cc2679f640d5a9bc51"
+                                             },
+                                             {
+                                                 "path":  "literature/evans-compact-support-w1p-zero-density/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "da7eae4be8fbf266e592ab1afebb03ea14b8f6b80720d8d8a1256229877afdcc"
+                                             }
+                                         ]
+                    },
+                    {
+                        "result_id":  "HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL",
+                        "source":  {
+                                       "citation":  "Lars Hormander, The Analysis of Linear Partial Differential Operators I: Distribution Theory and Fourier Analysis, first edition, Springer-Verlag, 1983, Definition 7.1.1, formulas (7.1.3) and (7.1.8), Definition 7.1.9, and Theorems 7.1.10-7.1.11, ISBN 3-540-12104-8 / 0-387-12104-8, DOI 10.1007/978-3-642-96750-4.",
+                                       "artifact":  {
+                                                        "path":  "literature/sources/Hormander_Analysis_LPDO_I_1983.pdf",
+                                                        "sha256":  "f6aba055a19618643458e4572286508e5fa142eeef9227b3091c42c1f5053233"
+                                                    }
+                                   },
+                        "translation_spec":  {
+                                                 "path":  "literature/hormander-euclidean-l2-fourier-plancherel/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "89b9cae25ae4f629e907f72cfd47b4e59273e7bdec653bf2a20c7835de87ad90"
+                                             },
+                        "reviews":  {
+                                        "independent_translation":  {
+                                                                        "path":  "literature/hormander-euclidean-l2-fourier-plancherel/reviews/v001/independent-source-translation.md",
+                                                                        "sha256":  "fa88be1cd591eb46183883ef27ed32b375b1853c81cdd3ac04d39aa12c56ae7c"
+                                                                    },
+                                        "adversarial_hypothesis_audit":  {
+                                                                             "path":  "literature/hormander-euclidean-l2-fourier-plancherel/reviews/v001/adversarial-audit.md",
+                                                                             "sha256":  "c6a474f9d670bcc63e95fac1d2112bd09d7a693d718e86492ca08f97d6c4ae8d"
+                                                                         },
+                                        "isabelle_semantics_audit":  {
+                                                                         "path":  "literature/hormander-euclidean-l2-fourier-plancherel/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                                         "sha256":  "a4208dcbbbb9492c132ba086c1f175e6fae563fabc117611dcbdf8b3942041f8"
+                                                                     }
+                                    },
+                        "approval":  {
+                                         "mode":  "testing_waiver",
+                                         "approved_by":  "temporary workflow-testing waiver",
+                                         "approved_at_utc":  "2026-08-20T20:14:15.4212862Z",
+                                         "record":  "The user accepted the source choice. The unchanged fixed v001 candidate passed three independent reviews and primary reconciliation and is frozen under the active testing waiver; this is not human semantic approval and human ratification remains pending.",
+                                         "human_ratification":  "pending",
+                                         "waiver":  {
+                                                        "authorized_by":  "user",
+                                                        "authorized_at":  "2026-08-02",
+                                                        "authorization_record":  "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+                                                        "restore_to":  "human_required"
+                                                    }
+                                     },
+                        "change_control":  {
+                                               "replaces_previous":  false,
+                                               "previous_entry_sha256":  null,
+                                               "summary":  null
+                                           },
+                        "locked_files":  [
+                                             {
+                                                 "path":  "literature/hormander-euclidean-l2-fourier-plancherel/Hormander_Euclidean_L2_Fourier_Plancherel_Interface.thy",
+                                                 "sha256":  "1438cdeb24c1813a8ca72a10b151e352e50301f03c92d43b4935e9757787a6fd"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-euclidean-l2-fourier-plancherel/reviews/v001/adversarial-audit.md",
+                                                 "sha256":  "c6a474f9d670bcc63e95fac1d2112bd09d7a693d718e86492ca08f97d6c4ae8d"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-euclidean-l2-fourier-plancherel/reviews/v001/independent-source-translation.md",
+                                                 "sha256":  "fa88be1cd591eb46183883ef27ed32b375b1853c81cdd3ac04d39aa12c56ae7c"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-euclidean-l2-fourier-plancherel/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                 "sha256":  "a4208dcbbbb9492c132ba086c1f175e6fae563fabc117611dcbdf8b3942041f8"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-euclidean-l2-fourier-plancherel/reviews/v001/primary-precheck.md",
+                                                 "sha256":  "826a2c80c3c5f3efd557d0eea49988bfdc03b49fc85f182242b43975c37553f6"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-euclidean-l2-fourier-plancherel/reviews/v001/reconciliation.md",
+                                                 "sha256":  "4c0585937b2ff8d76fec095e81c10673dbd7c8bc46c85a5d2983b11b1703a077"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-euclidean-l2-fourier-plancherel/ROOT",
+                                                 "sha256":  "a01242aa77c73307e1de5e9af60e63ce8ebd75ff61a4c65ec35a0150e5fccdd4"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-euclidean-l2-fourier-plancherel/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "89b9cae25ae4f629e907f72cfd47b4e59273e7bdec653bf2a20c7835de87ad90"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-euclidean-l2-fourier-plancherel/source/SOURCE_METADATA.md",
+                                                 "sha256":  "0b298472d824762e8f3495297f72bedaa19ccc1d42c1717c072e0b2835884a27"
+                                             }
+                                         ]
+                    },
+                    {
+                        "result_id":  "HORMANDER-QUADRATIC-STATIONARY-PHASE",
+                        "source":  {
+                                       "citation":  "Lars Hörmander, The Analysis of Linear Partial Differential Operators I, first edition, Springer-Verlag, 1983, Lemma 7.7.3, equations (7.7.7)-(7.7.8), printed pp. 218-219",
+                                       "artifact":  {
+                                                        "path":  "literature/sources/Hormander_Analysis_LPDO_I_1983.pdf",
+                                                        "sha256":  "f6aba055a19618643458e4572286508e5fa142eeef9227b3091c42c1f5053233"
+                                                    }
+                                   },
+                        "translation_spec":  {
+                                                 "path":  "literature/hormander-quadratic-stationary-phase/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "030db4bd2eab9c66bf94851c32aa72121d7c9308e4f8fca7c6d58f34faec41c4"
+                                             },
+                        "reviews":  {
+                                        "independent_translation":  {
+                                                                        "path":  "literature/hormander-quadratic-stationary-phase/reviews/v001/independent-source-translation.md",
+                                                                        "sha256":  "77e9e8cbad3194787a55192496c7affd33afd87f87f30552b28dd6eba90861bf"
+                                                                    },
+                                        "adversarial_hypothesis_audit":  {
+                                                                             "path":  "literature/hormander-quadratic-stationary-phase/reviews/v001/adversarial-audit.md",
+                                                                             "sha256":  "663e085e269e07d1d5e2090d1c545a8b7905c6ccad953f77fb66363735c50cc1"
+                                                                         },
+                                        "isabelle_semantics_audit":  {
+                                                                         "path":  "literature/hormander-quadratic-stationary-phase/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                                         "sha256":  "2bde7bece9286d334224c88b43e80f9fa720712bb9f0aacee7e36489735dcd92"
+                                                                     }
+                                    },
+                        "approval":  {
+                                         "mode":  "testing_waiver",
+                                         "approved_by":  "temporary workflow-testing waiver",
+                                         "approved_at_utc":  "2026-08-10T06:12:24.3306602Z",
+                                         "record":  "Exact HORMANDER-QUADRATIC-STATIONARY-PHASE v001 candidate accepted after exact-source verification, native and classified reproducible Isabelle validation, three mutually independent fixed-hash strongest-tier reviews, and primary reconciliation; frozen under the active user-authorized testing waiver with exact-byte human semantic ratification pending.",
+                                         "human_ratification":  "pending",
+                                         "waiver":  {
+                                                        "authorized_by":  "user",
+                                                        "authorized_at":  "2026-08-02",
+                                                        "authorization_record":  "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+                                                        "restore_to":  "human_required"
+                                                    }
+                                     },
+                        "change_control":  {
+                                               "replaces_previous":  false,
+                                               "previous_entry_sha256":  null,
+                                               "summary":  null
+                                           },
+                        "locked_files":  [
+                                             {
+                                                 "path":  "literature/hormander-quadratic-stationary-phase/Hormander_Quadratic_Stationary_Phase_Interface.thy",
+                                                 "sha256":  "f2f9bb5b9cf0b5624699d390eab9de8d830ec22bd5909ac482d3b5c1d04a25a8"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-quadratic-stationary-phase/reviews/v001/adversarial-audit.md",
+                                                 "sha256":  "663e085e269e07d1d5e2090d1c545a8b7905c6ccad953f77fb66363735c50cc1"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-quadratic-stationary-phase/reviews/v001/independent-source-translation.md",
+                                                 "sha256":  "77e9e8cbad3194787a55192496c7affd33afd87f87f30552b28dd6eba90861bf"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-quadratic-stationary-phase/reviews/v001/isabelle-semantics-trust-audit.md",
+                                                 "sha256":  "2bde7bece9286d334224c88b43e80f9fa720712bb9f0aacee7e36489735dcd92"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-quadratic-stationary-phase/reviews/v001/primary-precheck.md",
+                                                 "sha256":  "6762d789cc313b318d41df87506da88986e70fec106449620b188b5271b2a273"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-quadratic-stationary-phase/reviews/v001/reconciliation.md",
+                                                 "sha256":  "fae16c300ced531ee5dbfa237ca27c8120758425ab8ee0ae55b9c98ba5d2191d"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-quadratic-stationary-phase/ROOT",
+                                                 "sha256":  "27d2044f719d229570fdfa278f7a488b35a6571125a66f8f490492fe71bd8e10"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-quadratic-stationary-phase/source/SOURCE_METADATA.md",
+                                                 "sha256":  "ffc1bf88fa8707b75c9fa176f4b0d2f129bf1bb9e440fae8fecda4208ab43d3a"
+                                             },
+                                             {
+                                                 "path":  "literature/hormander-quadratic-stationary-phase/SOURCE_TRANSLATION.md",
+                                                 "sha256":  "030db4bd2eab9c66bf94851c32aa72121d7c9308e4f8fca7c6d58f34faec41c4"
+                                             }
+                                         ]
+                    }
+                ]
+}

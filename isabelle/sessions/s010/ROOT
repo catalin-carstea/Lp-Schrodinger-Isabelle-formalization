@@ -1,0 +1,6 @@
+session Paper_ISLP_Hormander_Quadratic_Stationary_Phase = "HOL-Analysis" +
+  options [document = false]
+  sessions
+    Smooth_Manifolds
+  theories
+    Hormander_Quadratic_Stationary_Phase_Interface

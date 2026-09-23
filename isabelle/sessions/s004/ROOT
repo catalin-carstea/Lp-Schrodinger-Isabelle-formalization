@@ -1,0 +1,4 @@
+session Paper_ISLP_AIM_Planar_Hardy_Littlewood_Sobolev = "HOL-Analysis" +
+  options [document = false]
+  theories
+    AIM_Planar_Hardy_Littlewood_Sobolev_Interface

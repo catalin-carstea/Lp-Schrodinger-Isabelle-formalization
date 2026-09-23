@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "semantic_approval": {
+    "mode": "testing_waiver",
+    "temporary": true,
+    "authorized_by": "user",
+    "authorized_at": "2026-08-02",
+    "authorization_record": "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+    "restore_to": "human_required",
+    "restoration_condition": "When workflow testing ends, set mode to human_required. Locks created with testing_waiver remain human-ratification pending and must fail production gates until ratified."
+  }
+}

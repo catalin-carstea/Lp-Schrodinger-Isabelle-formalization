@@ -1,0 +1,9 @@
+session Paper_Inverse_Schrodinger_Lp_Uniqueness = "HOL-Analysis" +
+  options [document = false]
+  sessions
+    Smooth_Manifolds
+  directories
+    thys
+  theories
+    Inverse_Schrodinger_Lp_Setup
+    Inverse_Schrodinger_Lp_Main_Statement

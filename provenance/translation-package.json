@@ -1,0 +1,339 @@
+{
+    "schema_version":  2,
+    "package_format":  "latex_parallel_v1",
+    "status":  "audited",
+    "package_version":  2,
+    "artifact_directory":  "artifacts/inverse-schrodinger-lp-uniqueness",
+    "statement_lock":  {
+                           "path":  "papers/inverse-schrodinger-lp-uniqueness/statement-lock.json",
+                           "version":  2,
+                           "sha256":  "2436c0c1285e9aff404364c43a767870c5429e62c8320977c1be11a73fceacae"
+                       },
+    "literature_lock":  {
+                            "path":  "papers/inverse-schrodinger-lp-uniqueness/literature-lock.json",
+                            "version":  10,
+                            "sha256":  "9565e5ca02275fcca29c89fcbd92587783223638a393eee72609cdd4964012ef"
+                        },
+    "manuscript":  {
+                       "path":  "papers/inverse-schrodinger-lp-uniqueness/manuscript/schrodinger-Lp-v05.tex",
+                       "sha256":  "bea3c22283a7bfc8b2adb929bfc48e576c7bfb0a3f0ff6a823ce2bb191048430"
+                   },
+    "manuscript_claims":  [
+                              {
+                                  "entry_id":  "MAIN-001",
+                                  "formal_identifier":  "slp_alessandrini_uniqueness_claim",
+                                  "source_locator":  "Frozen user-selected statement-v2/spec/MAIN_STATEMENT.md; official manuscript weak Alessandrini lemma and equation weak-alessandrini-zero, lines 1115-1152; explicitly not manuscript theorem main-thm.",
+                                  "isabelle_sha256":  "bf6183dd10d67c092adfcb8dc5e342e2bdc4713773f6cabc11b3fe98c0949dd0"
+                              }
+                          ],
+    "direct_literature_ids":  [
+                                  "AIM-PLANAR-BEURLING-LP-BOUND",
+                                  "AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES",
+                                  "AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE",
+                                  "AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV",
+                                  "AIM-PLANAR-RIESZ-POTENTIAL-HLS",
+                                  "EVANS-COMPACT-SMOOTH-L1-DENSITY",
+                                  "EVANS-COMPACT-SMOOTH-LP-DENSITY",
+                                  "EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY",
+                                  "HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL",
+                                  "HORMANDER-QUADRATIC-STATIONARY-PHASE"
+                              ],
+    "inherited_literature":  [
+
+                             ],
+    "literature_entries":  [
+                               {
+                                   "result_id":  "AIM-PLANAR-BEURLING-LP-BOUND",
+                                   "formal_identifier":  "aim_planar_beurling_lp_claim",
+                                   "relation_to_source":  "derived",
+                                   "source_statements":  [
+                                                             {
+                                                                 "statement_id":  "SOURCE-1",
+                                                                 "locator":  "Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, formula (4.17), Theorem 4.0.10, and Theorem 4.5.3 with (4.84), printed pp. 94, 97-98, and 129, ISBN 978-0-691-13777-3"
+                                                             }
+                                                         ],
+                                   "isabelle_sha256":  "f8fece2b08a6471ec861f28bfea140ea7f6d7d547576be72d730624314f7914a"
+                               },
+                               {
+                                   "result_id":  "AIM-PLANAR-CAUCHY-BEURLING-DERIVATIVES",
+                                   "formal_identifier":  "aim_planar_cauchy_beurling_derivatives_claim",
+                                   "relation_to_source":  "derived",
+                                   "source_statements":  [
+                                                             {
+                                                                 "statement_id":  "SOURCE-1",
+                                                                 "locator":  "Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Definition 4.0.9 and formulas (4.6), (4.8), (4.16)-(4.17), Theorem 4.0.10, the Lp extension discussion on printed pp. 96-97, and Theorem 4.5.3, printed pp. 93-98 and 129, ISBN 978-0-691-13777-3"
+                                                             }
+                                                         ],
+                                   "isabelle_sha256":  "84b663437ef88c2afb218983c95aa9d0ba1f0452a5de8858a6c7edb70b101a5d"
+                               },
+                               {
+                                   "result_id":  "AIM-PLANAR-CAUCHY-TEST-LEFT-INVERSE",
+                                   "formal_identifier":  "aim_planar_cauchy_test_left_inverse_claim",
+                                   "relation_to_source":  "derived",
+                                   "source_statements":  [
+                                                             {
+                                                                 "statement_id":  "SOURCE-1",
+                                                                 "locator":  "Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Definition 4.0.9 and formulas (4.6)-(4.8), printed p. 93 / PDF p. 112, ISBN 978-0-691-13777-3"
+                                                             }
+                                                         ],
+                                   "isabelle_sha256":  "e36cd1c3935a4e7d4a5dc94924f30cae55e0492204858519bafe339f94d0811f"
+                               },
+                               {
+                                   "result_id":  "AIM-PLANAR-HARDY-LITTLEWOOD-SOBOLEV",
+                                   "formal_identifier":  "aim_planar_hls_cauchy_claim",
+                                   "relation_to_source":  "derived",
+                                   "source_statements":  [
+                                                             {
+                                                                 "statement_id":  "SOURCE-1",
+                                                                 "locator":  "Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, Theorem 4.3.8, printed p. 111; normalization and HLS estimate printed pp. 109-110"
+                                                             }
+                                                         ],
+                                   "isabelle_sha256":  "852ba56026e12a889230fd847db31d584bb9a3ceb843ae2564e7ca0833445dcd"
+                               },
+                               {
+                                   "result_id":  "AIM-PLANAR-RIESZ-POTENTIAL-HLS",
+                                   "formal_identifier":  "aim_planar_riesz_hls_claim",
+                                   "relation_to_source":  "derived",
+                                   "source_statements":  [
+                                                             {
+                                                                 "statement_id":  "SOURCE-1",
+                                                                 "locator":  "Kari Astala, Tadeusz Iwaniec, and Gaven Martin, Elliptic Partial Differential Equations and Quasiconformal Mappings in the Plane, Princeton Mathematical Series 48, Princeton University Press, 2009, displayed Hardy-Littlewood-Sobolev inequality on printed p. 110 / PDF p. 129, ISBN 978-0-691-13777-3"
+                                                             }
+                                                         ],
+                                   "isabelle_sha256":  "ef7f5194a709551abc435f6d7f467d0b072effb02ead79552272d183b093e9ad"
+                               },
+                               {
+                                   "result_id":  "EVANS-COMPACT-SMOOTH-L1-DENSITY",
+                                   "formal_identifier":  "evans_compact_smooth_l1_density_claim",
+                                   "relation_to_source":  "derived",
+                                   "source_statements":  [
+                                                             {
+                                                                 "statement_id":  "SOURCE-1",
+                                                                 "locator":  "Lawrence C. Evans, Partial Differential Equations, second edition, Graduate Studies in Mathematics 19, American Mathematical Society, 2010, Appendix C.5, standard mollifier printed p. 713 and Theorem 7(i),(iv), printed pp. 714-716"
+                                                             }
+                                                         ],
+                                   "isabelle_sha256":  "1af0dad1fa8987cf9c5637e81d5bb93b07c32a4135bd7ca66fc78613bf9cf498"
+                               },
+                               {
+                                   "result_id":  "EVANS-COMPACT-SMOOTH-LP-DENSITY",
+                                   "formal_identifier":  "evans_compact_smooth_lp_density_claim",
+                                   "relation_to_source":  "derived",
+                                   "source_statements":  [
+                                                             {
+                                                                 "statement_id":  "SOURCE-1",
+                                                                 "locator":  "Lawrence C. Evans, Partial Differential Equations, 2nd ed., Graduate Studies in Mathematics 19, American Mathematical Society, 2010, Appendix C.5 standard mollifier and Theorem 7(i),(iv), printed pp. 713-716, ISBN 978-0-8218-4974-3"
+                                                             }
+                                                         ],
+                                   "isabelle_sha256":  "2f49e9cf0fde3a016db6f95cd2dfb2e04cd12024f3cb40096fd6a202d626c869"
+                               },
+                               {
+                                   "result_id":  "EVANS-COMPACT-SUPPORT-W1P-ZERO-DENSITY",
+                                   "formal_identifier":  "evans_compact_support_w1p_zero_density_claim",
+                                   "relation_to_source":  "derived",
+                                   "source_statements":  [
+                                                             {
+                                                                 "statement_id":  "SOURCE-1",
+                                                                 "locator":  "Lawrence C. Evans, Partial Differential Equations, second edition, Graduate Studies in Mathematics 19, American Mathematical Society, 2010, definition of C_c^infinity(U), printed p. 256; definition of W_0^{k,p}(U), printed p. 259; Section 5.3.1, Theorem 1 and proof, printed pp. 264-265; Appendix C.5, standard mollifier and Theorem 7(i),(iv), printed pp. 713-716; ISBN 978-0-8218-4974-3"
+                                                             }
+                                                         ],
+                                   "isabelle_sha256":  "d6d5294b08a17003c0b7247394a2612cfc06f2c5247b638ba595891d6a651fb9"
+                               },
+                               {
+                                   "result_id":  "HORMANDER-EUCLIDEAN-L2-FOURIER-PLANCHEREL",
+                                   "formal_identifier":  "hormander_euclidean_l2_fourier_plancherel_claim",
+                                   "relation_to_source":  "derived",
+                                   "source_statements":  [
+                                                             {
+                                                                 "statement_id":  "SOURCE-1",
+                                                                 "locator":  "Lars Hormander, The Analysis of Linear Partial Differential Operators I: Distribution Theory and Fourier Analysis, first edition, Springer-Verlag, 1983, Definition 7.1.1, formulas (7.1.3) and (7.1.8), Definition 7.1.9, and Theorems 7.1.10-7.1.11, ISBN 3-540-12104-8 / 0-387-12104-8, DOI 10.1007/978-3-642-96750-4."
+                                                             }
+                                                         ],
+                                   "isabelle_sha256":  "9478b8bfaf0a6e53242600bbf1fc1e36bee1a56c707b18bc1cdf4d55d95a12ad"
+                               },
+                               {
+                                   "result_id":  "HORMANDER-QUADRATIC-STATIONARY-PHASE",
+                                   "formal_identifier":  "hormander_quadratic_stationary_phase_decay_claim",
+                                   "relation_to_source":  "derived",
+                                   "source_statements":  [
+                                                             {
+                                                                 "statement_id":  "SOURCE-1",
+                                                                 "locator":  "Lars Hörmander, The Analysis of Linear Partial Differential Operators I, first edition, Springer-Verlag, 1983, Lemma 7.7.3, equations (7.7.7)-(7.7.8), printed pp. 218-219"
+                                                             }
+                                                         ],
+                                   "isabelle_sha256":  "6e7899fb0258a26bb6c6851fd1734fd0bbbdee04ee92437728b2c24b12565406"
+                               }
+                           ],
+    "definition_entries":  [
+                               {
+                                   "entry_id":  "DEF-01-TYPES",
+                                   "formal_identifier":  "slp_point; slp_scalar_field; slp_gradient_field; slp_h1_data",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "f4c86e672737c457e61a477dcc7e356203f576abd95063eefeaa52389c14f945"
+                               },
+                               {
+                                   "entry_id":  "DEF-02-SMOOTH-BOUNDARY",
+                                   "formal_identifier":  "slp_smooth_boundary_at",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "34d3323d674c25a596f8c5ee1b644e723283fa5e0e83932857916f2bd68b16f6"
+                               },
+                               {
+                                   "entry_id":  "DEF-03-DOMAIN",
+                                   "formal_identifier":  "slp_bounded_smooth_domain",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "dee6481e16eeb5e39a4dbc44b40f4ee839f0b090020502d83fdcf31e6a7e4464"
+                               },
+                               {
+                                   "entry_id":  "DEF-04-PARTIAL",
+                                   "formal_identifier":  "slp_complex_partial_derivative",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "a19fbd0a267f0c02cf5ff6ab702b30f8f419edd571b072ce3b406c22e8c0b884"
+                               },
+                               {
+                                   "entry_id":  "DEF-05-GRADIENT",
+                                   "formal_identifier":  "slp_classical_gradient",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "f3b4dafcccf7d81855c65119aba9dafd383c0c2f58f33168300b11e727b9c36f"
+                               },
+                               {
+                                   "entry_id":  "DEF-06-TEST",
+                                   "formal_identifier":  "slp_test_function_on",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "caffc5ade3ae48b0a68d3ea7a59abb844f3dc36e1d8565b9e7c58aa8b56304cc"
+                               },
+                               {
+                                   "entry_id":  "DEF-07-WEAK-GRADIENT",
+                                   "formal_identifier":  "slp_weak_gradient_on",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "0162e235d61abb697236e4613e86e8694462bedb9a17ba19d401e8bb25ca95ba"
+                               },
+                               {
+                                   "entry_id":  "DEF-08-H1-PAIR",
+                                   "formal_identifier":  "slp_h1_pair_on",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "51fd3f508f2f0af00ad51648e98e43780ddccf54013ed9c30e303bc7e6b94b0c"
+                               },
+                               {
+                                   "entry_id":  "DEF-09-H1-DATA",
+                                   "formal_identifier":  "slp_h1_data_on",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "0275ba93c43934decbe2c7a2a621c66a9efb87bbb06c456ff4d8dda5cb652170"
+                               },
+                               {
+                                   "entry_id":  "DEF-10-H1-DISTANCE",
+                                   "formal_identifier":  "slp_h1_squared_distance",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "8c089c6e9ae78167821a4dbfab6ee7da03e0431f03243326c694203ef350a257"
+                               },
+                               {
+                                   "entry_id":  "DEF-11-H10-PAIR",
+                                   "formal_identifier":  "slp_h1_zero_pair_on",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "85d969c9aa8af59ebcc4fe08072a9bc191a810c07ea03e671ebe9a88cbb0b860"
+                               },
+                               {
+                                   "entry_id":  "DEF-12-H10-DATA",
+                                   "formal_identifier":  "slp_h1_zero_data_on",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "ac5ae7f4418d5e286568672d6287ac2d4c5e0dc78f250ab4b10c0ac9c2d891cd"
+                               },
+                               {
+                                   "entry_id":  "DEF-13-LP",
+                                   "formal_identifier":  "slp_complex_lp_on",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "ba7ffe74b03a74286baac4195ea7cb664ae221cec5384f716a58919eea34db53"
+                               },
+                               {
+                                   "entry_id":  "DEF-14-WEAK-FORM-INTEGRABLE",
+                                   "formal_identifier":  "slp_weak_form_integrable",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "ccdf1a5924b1f35ee2154a1657b73f89c437c0b581cdbc15e4fd03c479c506ee"
+                               },
+                               {
+                                   "entry_id":  "DEF-15-WEAK-FORM",
+                                   "formal_identifier":  "slp_weak_form",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "ca3f6c450f88d8f42f61c08eacfd49e0eb85cf940125acdaa0bd51aaa3073ed8"
+                               },
+                               {
+                                   "entry_id":  "DEF-16-WEAK-SOLUTION",
+                                   "formal_identifier":  "slp_weak_solution",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "98b8a3a815bb191cc23322169e8381b05f0e6e456e2797a628c302fdcfb7e508"
+                               },
+                               {
+                                   "entry_id":  "DEF-17-AE-EQUALITY",
+                                   "formal_identifier":  "slp_potential_ae_equal",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/thys/Inverse_Schrodinger_Lp_Setup.thy",
+                                   "source_sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d",
+                                   "isabelle_sha256":  "6573270b22a862d61185314c3a86a6df07039c17cdd9d71bd55f23598288d67a"
+                               },
+                               {
+                                   "entry_id":  "DEF-18-ALESSANDRINI",
+                                   "formal_identifier":  "slp_alessandrini_orthogonality",
+                                   "source_path":  "papers/inverse-schrodinger-lp-uniqueness/statement-v2/thys/Inverse_Schrodinger_Lp_Alessandrini_Statement_v2.thy",
+                                   "source_sha256":  "0fd471f008c4f2d79961d45bb654752a986c39c2111203c67748c6d22a03d792",
+                                   "isabelle_sha256":  "b3eff1f6627096fcdcf558bcf3e33d97cef31a880898fe6267e952b3edb0e7f1"
+                               }
+                           ],
+    "definition_closure_empty_reason":  null,
+    "documents":  [
+                      {
+                          "id":  "A",
+                          "tex_file":  "TRANSLATION_A.tex",
+                          "pdf_file":  "TRANSLATION_A.pdf",
+                          "translator_provenance":  "Dossier A: editorial assembly from the fixed-hash isolated statement v002-r1 independent-translator report and the ten locked independent-source-translation reports named in statement-lock v2 and literature-lock v10.",
+                          "independence_record":  "The underlying A translations were produced in isolated read-only reviewer roles before this package existed; each report records fixed inputs and no access to peer reviews. The primary only normalized them into this common public layout."
+                      },
+                      {
+                          "id":  "B",
+                          "tex_file":  "TRANSLATION_B.tex",
+                          "pdf_file":  "TRANSLATION_B.pdf",
+                          "translator_provenance":  "Dossier B: editorial assembly from the distinct fixed-hash isolated statement v002-r1 Isabelle-semantics/adversarial reports and the ten locked Isabelle-semantics/adversarial literature reports named in the locks.",
+                          "independence_record":  "The underlying B reconstructions were produced independently of the A translators and record peer-report isolation. Their wording here remains deliberately different while authoritative source and Isabelle blocks are byte-identical."
+                      }
+                  ],
+    "human_ratification_state":  "pending",
+    "files":  {
+                  "README.md":  {
+                                    "sha256":  "472dd2f7320d47ae04778ce1abd39557ca5d431f6899fd9a44b1d4accb0092f7"
+                                },
+                  "TRANSLATION_A.tex":  {
+                                            "sha256":  "481354fb320822d2bd8761fc0eb20e32d447ea64cbaee13795662d9745182a7d"
+                                        },
+                  "TRANSLATION_A.pdf":  {
+                                            "sha256":  "211eda7b477c14e9c06530d0340a7a3ecedfbdb06f8efa49bcfed89457ea153f"
+                                        },
+                  "TRANSLATION_B.tex":  {
+                                            "sha256":  "6043146f5bf81b3ab91e661b8e5a2cce5d5638583d34d252c43a82ef850e2ec1"
+                                        },
+                  "TRANSLATION_B.pdf":  {
+                                            "sha256":  "455ec63d8a2efea74aeb9199642edb1369d4417f2d2cb9aab9c5b805dcf5ba88"
+                                        }
+              },
+    "build":  {
+                  "compiler":  "pdflatex",
+                  "source_date_epoch":  0,
+                  "completed_at":  "2026-09-05T15:29:22.6421918+08:00"
+              },
+    "audit":  {
+                  "path":  "papers/inverse-schrodinger-lp-uniqueness/reviews/translation-package/v002/INDEPENDENT_PACKAGE_AUDIT.md",
+                  "sha256":  "7b760ca433e6b64d187d81925bb733314a85465885def09dbf3601e4e29de76f",
+                  "verdict":  "PASS"
+              }
+}

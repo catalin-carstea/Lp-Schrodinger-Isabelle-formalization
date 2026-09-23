@@ -1,0 +1,6 @@
+session Paper_Inverse_Schrodinger_Lp_Alessandrini_Statement_V2 = Paper_Inverse_Schrodinger_Lp_Uniqueness +
+  options [document = false]
+  directories
+    thys
+  theories
+    Inverse_Schrodinger_Lp_Alessandrini_Statement_v2

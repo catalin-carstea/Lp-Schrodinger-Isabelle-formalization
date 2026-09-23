@@ -1,0 +1,14 @@
+[
+  {
+    "source": "papers/inverse-schrodinger-lp-uniqueness/spec/qstar-w1p-v001/Qstar_W1p_Semantics_Candidate.thy",
+    "sha256": "6fdc91f01fca533a8e2f8d6766174441d1c5391f9ca1d7c1a21ad7655678c977"
+  },
+  {
+    "source": "papers/inverse-schrodinger-lp-uniqueness/proof/stages/stage-010/Inverse_Schrodinger_Lp_Complex_Lp_Norm_Triangle.thy",
+    "sha256": "cd0b3137fe317bafa523926251ada8624eaeb244d986d8b3b88bc5f23957f3da"
+  },
+  {
+    "source": "papers/inverse-schrodinger-lp-uniqueness/proof/stages/stage-017/Inverse_Schrodinger_Lp_CGO_Born_Carrier_Remainder_Closure.thy",
+    "sha256": "43f08987a3e8c7e09461f90d7dd5e28058b1763d0b6807a3dd6427a01241d911"
+  }
+]

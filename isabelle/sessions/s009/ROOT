@@ -1,0 +1,4 @@
+session Paper_ISLP_Hormander_Euclidean_L2_Fourier_Plancherel = "HOL-Analysis" +
+  options [document = false]
+  theories
+    Hormander_Euclidean_L2_Fourier_Plancherel_Interface

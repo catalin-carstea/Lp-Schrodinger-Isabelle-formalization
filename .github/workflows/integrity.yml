@@ -1,0 +1,27 @@
+name: Windows and Ubuntu package integrity
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  integrity:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Shared integrity checker
+        run: python -B check.py --skip-build
+      - name: Ubuntu launcher
+        if: runner.os == 'Linux'
+        run: bash ./check.sh --skip-build
+      - name: Windows CMD and Windows PowerShell 5.1 launcher
+        if: runner.os == 'Windows'
+        shell: cmd
+        run: check.cmd -SkipBuild
+      - name: PowerShell 7 launcher
+        shell: pwsh
+        run: ./check.ps1 -SkipBuild

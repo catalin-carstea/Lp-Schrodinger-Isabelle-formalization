@@ -1,0 +1,5 @@
+session Paper_ISLP_AIM_Planar_Riesz_Potential_HLS =
+  Paper_ISLP_AIM_Planar_Hardy_Littlewood_Sobolev +
+  options [document = false]
+  theories
+    AIM_Planar_Riesz_Potential_HLS_Interface

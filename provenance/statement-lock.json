@@ -1,0 +1,103 @@
+{
+    "schema_version":  1,
+    "status":  "frozen",
+    "lock_version":  2,
+    "main_result_id":  "slp_alessandrini_uniqueness_claim",
+    "specification_path":  "statement-v2/spec/MAIN_STATEMENT.md",
+    "manuscript":  {
+                       "path":  "manuscript/schrodinger-Lp-v05.tex",
+                       "sha256":  "bea3c22283a7bfc8b2adb929bfc48e576c7bfb0a3f0ff6a823ce2bb191048430"
+                   },
+    "approval":  {
+                     "mode":  "testing_waiver",
+                     "approved_by":  "temporary workflow-testing waiver",
+                     "approved_at_utc":  "2026-08-31T22:45:44.6601527Z",
+                     "record":  "Exact corrected v002 conditional target selected by the user; fixed-hash lint, three fresh independent reviews, reconciliation, and Isabelle2025-2 native/Docker candidate validation accepted; frozen under the active testing waiver with exact-byte human ratification pending; v001 preserved as immutable history.",
+                     "human_ratification":  "pending",
+                     "waiver":  {
+                                    "authorized_by":  "user",
+                                    "authorized_at":  "2026-08-02",
+                                    "authorization_record":  "User requested that human approval for theorem statements and imported literature statements be temporarily disabled to speed workflow testing.",
+                                    "restore_to":  "human_required"
+                                }
+                 },
+    "previous_lock_sha256":  "9b25a8b69e71659a53aebb69e98d0386532407bdb66fa3bff53d06c2483ab472",
+    "locked_files":  [
+                         {
+                             "path":  "reviews/statement/v001/adversarial-audit.md",
+                             "sha256":  "114695eb2f13761da2106cde54fcd1fbe175de307e834702207adccd7a7b4ebd"
+                         },
+                         {
+                             "path":  "reviews/statement/v001/independent-translator.md",
+                             "sha256":  "d5d22b67731f3f91ef82f55ce55c097fde910f533a984bf423def7d408717b63"
+                         },
+                         {
+                             "path":  "reviews/statement/v001/isabelle-semantics.md",
+                             "sha256":  "7cf9d49fa8f60eea90b31d18444eb5caab7ab90461c2bbcfa13595318fa326dc"
+                         },
+                         {
+                             "path":  "reviews/statement/v001/pre-review-lint.json",
+                             "sha256":  "a0707645b1119cec1155998a876fd97db0a1911e2d0348915334a916e985f4fa"
+                         },
+                         {
+                             "path":  "reviews/statement/v001/primary-precheck.md",
+                             "sha256":  "2b27be835a98215950d2d127e4abc8ec6ee6ba9d6a34b6d95c87c37dc6194846"
+                         },
+                         {
+                             "path":  "reviews/statement/v001/reconciliation.md",
+                             "sha256":  "70eda84707a5225f3fcc4b618ca7feaa631be8ed3f31fa56f4a45f39dcc98c35"
+                         },
+                         {
+                             "path":  "reviews/statement/v002-r1/adversarial-audit.md",
+                             "sha256":  "dc81639475f8eea6c0c5d2233c54a3c595de6588e44656755f36cbf5b97e075e"
+                         },
+                         {
+                             "path":  "reviews/statement/v002-r1/independent-translator.md",
+                             "sha256":  "71dfd954581068cde77cce8a0ae37601147996953035efbf68d7096a4aef83ac"
+                         },
+                         {
+                             "path":  "reviews/statement/v002-r1/isabelle-semantics.md",
+                             "sha256":  "214eb9ad9c5293441c2813730510b0152c0b8ad25329ccf17bca51d670756eec"
+                         },
+                         {
+                             "path":  "reviews/statement/v002-r1/pre-review-lint.json",
+                             "sha256":  "a9346936fbf479b4e17f507fb4e9e81dacdd43fd73bd2bc3e7f54bb38b15eb19"
+                         },
+                         {
+                             "path":  "reviews/statement/v002-r1/primary-precheck.md",
+                             "sha256":  "a6fc6552ec528b9a5fee4383de6aa9eb7db4f1a726dae63c73330ff72f12599d"
+                         },
+                         {
+                             "path":  "reviews/statement/v002-r1/reconciliation.md",
+                             "sha256":  "ef04f6026ae98dad841377a64a9fbe68d46b1a723c758ad23b0d0287f3116b45"
+                         },
+                         {
+                             "path":  "ROOT",
+                             "sha256":  "084f08c9b69c33025d83b634e7b3dcb6f56501a4a2653300c282b762a0ff6ee2"
+                         },
+                         {
+                             "path":  "spec/MAIN_STATEMENT.md",
+                             "sha256":  "63a3fef6c84ab7e5a52b22609404eb4027ce6d41faf54be2bc7afb5975d2b730"
+                         },
+                         {
+                             "path":  "statement-v2/ROOT",
+                             "sha256":  "84aebc3b1a407daa8532958abd58246f63cc749fb111cf070bacc91126888733"
+                         },
+                         {
+                             "path":  "statement-v2/spec/MAIN_STATEMENT.md",
+                             "sha256":  "6920b24c8ade83595f924742031788757612c93b06c17c0fec75621af6c40961"
+                         },
+                         {
+                             "path":  "statement-v2/thys/Inverse_Schrodinger_Lp_Alessandrini_Statement_v2.thy",
+                             "sha256":  "0fd471f008c4f2d79961d45bb654752a986c39c2111203c67748c6d22a03d792"
+                         },
+                         {
+                             "path":  "thys/Inverse_Schrodinger_Lp_Main_Statement.thy",
+                             "sha256":  "932025c9305619090926a13e93aa99b9e8cd5e560e9ea70d4d37ff0b88558fee"
+                         },
+                         {
+                             "path":  "thys/Inverse_Schrodinger_Lp_Setup.thy",
+                             "sha256":  "edcd4dd35bdb06ccebcd5a952218b1b036efe7caf328c878ee90ff188eff444d"
+                         }
+                     ]
+}

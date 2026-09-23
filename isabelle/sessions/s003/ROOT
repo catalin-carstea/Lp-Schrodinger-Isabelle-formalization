@@ -1,0 +1,7 @@
+session Paper_ISLP_AIM_Planar_Cauchy_Test_Left_Inverse =
+  Paper_Inverse_Schrodinger_Lp_Uniqueness +
+  options [document = false]
+  sessions
+    Paper_ISLP_AIM_Planar_Hardy_Littlewood_Sobolev
+  theories
+    AIM_Planar_Cauchy_Test_Left_Inverse_Interface
